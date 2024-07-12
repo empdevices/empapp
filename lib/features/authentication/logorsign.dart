@@ -1,6 +1,7 @@
 import 'package:empapp/features/authentication/login.dart';
 import 'package:empapp/features/authentication/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LogorSign extends StatelessWidget {
   const LogorSign({super.key});
@@ -45,7 +46,9 @@ class LogorSign extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                     const SizedBox(height: 100,),
+                      const SizedBox(
+                        height: 100,
+                      ),
                       const Text(
                         'emission pulse',
                         style: TextStyle(
@@ -54,7 +57,9 @@ class LogorSign extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                     const SizedBox(height: 100,),
+                      const SizedBox(
+                        height: 100,
+                      ),
                       Row(
                         children: [
                           Image.asset(
@@ -84,7 +89,9 @@ class LogorSign extends StatelessWidget {
                           ),
                         ],
                       ),
-                     const SizedBox(height: 170,),
+                      const SizedBox(
+                        height: 170,
+                      ),
                       Stack(
                         children: [
                           Container(
@@ -105,10 +112,15 @@ class LogorSign extends StatelessWidget {
                                       ),
                                       TextButton(
                                         onPressed: () {
-                                          Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Login(),
+                                          Navigator.of(context).push(
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              childCurrent: this,
+                                              duration:
+                                                  const Duration(milliseconds: 400),
+                                              reverseDuration:
+                                                  const Duration(milliseconds: 400),
+                                              child: const Login(),
                                             ),
                                           );
                                         },
@@ -130,10 +142,16 @@ class LogorSign extends StatelessWidget {
                                       TextButton(
                                         onPressed: () {
                                           Navigator.of(context).push(
-                                                       MaterialPageRoute(
-                                                     builder: (context) => const Signup(),
-                                                         ),
-                                                       );
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              childCurrent: this,
+                                              duration:
+                                                  const Duration(milliseconds: 400),
+                                              reverseDuration:
+                                                  const Duration(milliseconds: 400),
+                                              child: const Signup(),
+                                            ),
+                                          );
                                         },
                                         child: const Text(
                                           'Sign Up',
