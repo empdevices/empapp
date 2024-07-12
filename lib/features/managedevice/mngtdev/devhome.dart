@@ -40,8 +40,7 @@ class _DevicesHomeState extends State<DevicesHome> {
                   ),
                   onPressed: () {
                     // navigate to settings page
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SettingsPage()));
+                    
                   },
                 ),
               ),
