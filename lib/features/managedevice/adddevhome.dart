@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AddDeviceHome extends StatelessWidget {
   const AddDeviceHome({super.key});
@@ -10,8 +11,7 @@ class AddDeviceHome extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: 
-        Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
@@ -49,7 +49,8 @@ class AddDeviceHome extends StatelessWidget {
                   const Center(
                     child: Text(
                       'Add Device',
-                      style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Center(
@@ -62,7 +63,15 @@ class AddDeviceHome extends StatelessWidget {
                   const SizedBox(height: 60),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Scan()));
+                      Navigator.of(context).push(
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 400),
+                          reverseDuration: const Duration(milliseconds: 400),
+                          child: const Scan(),
+                        ),
+                      );
                     },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +88,8 @@ class AddDeviceHome extends StatelessWidget {
                             children: [
                               const Text(
                                 'Scan Code',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'Look for the code on the device, or its packaging and place the code infront of your phone\'s camera to  scan it.',
@@ -102,7 +112,8 @@ class AddDeviceHome extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: '   Enter serial number ...',
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12), // Custom color
+                          borderSide:
+                              BorderSide(color: Colors.black12), // Custom color
                         ),
                       ),
                     ),

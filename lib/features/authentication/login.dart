@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -25,9 +26,13 @@ class Login extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => const LogorSign(),
+                      Navigator.of(context).push(
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 400),
+                          reverseDuration: const Duration(milliseconds: 400),
+                          child: const LogorSign(),
                         ),
                       ); // Handle back action
                     },
@@ -87,9 +92,13 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const RecoverPass(),
+                  Navigator.of(context).push(
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      childCurrent: this,
+                      duration: const Duration(milliseconds: 400),
+                      reverseDuration: const Duration(milliseconds: 400),
+                      child: const RecoverPass(),
                     ),
                   ); // Handle back action
                 },
@@ -156,9 +165,13 @@ class Login extends StatelessWidget {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const Signup(),
+                  Navigator.of(context).push(
+                    PageTransition(
+                      type: PageTransitionType.rightToLeftWithFade,
+                      childCurrent: this,
+                      duration: const Duration(milliseconds: 450),
+                      reverseDuration: const Duration(milliseconds: 450),
+                      child: const Signup(),
                     ),
                   ); // Handle sign up navigation
                 },

@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
@@ -26,9 +27,14 @@ class Signup extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => const LogorSign(),
+                          Navigator.of(context).push(
+                            PageTransition(
+                              type: PageTransitionType.leftToRightWithFade,
+                              childCurrent: this,
+                              duration: const Duration(milliseconds: 400),
+                              reverseDuration:
+                                  const Duration(milliseconds: 400),
+                              child: const Login(),
                             ),
                           ); // Handle back action
                         },
@@ -131,9 +137,13 @@ class Signup extends StatelessWidget {
                 Center(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => const AddDeviceHome(),
+                      Navigator.of(context).push(
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 450),
+                          reverseDuration: const Duration(milliseconds: 450),
+                          child: const AddDeviceHome(),
                         ),
                       ); // Handle log in navigation
                     },
@@ -198,8 +208,12 @@ class Signup extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const Login(),
+                        PageTransition(
+                          type: PageTransitionType.leftToRightWithFade,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 450),
+                          reverseDuration: const Duration(milliseconds: 450),
+                          child: const Login(),
                         ),
                       ); // Handle sign up navigation
                     },
