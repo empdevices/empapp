@@ -5,6 +5,10 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
@@ -43,7 +47,7 @@ class Signup extends StatelessWidget {
                     const Spacer(flex: 2),
                   ],
                 ),
-                const SizedBox(height: 120),
+                const SizedBox(height: 70),
                 const Padding(
                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   child: Text(
@@ -51,28 +55,12 @@ class Signup extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: nameController,
+                    decoration: const InputDecoration(
                       hintText: 'Full Name',
-                      border: UnderlineInputBorder(),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                  child: Text(
-                    'Email',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Active Email Address',
                       border: UnderlineInputBorder(),
                     ),
                   ),
@@ -85,11 +73,48 @@ class Signup extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: TextField(
+                    controller: phoneController,
+                    decoration: const InputDecoration(
+                      hintText: 'Phone',
+                      border: UnderlineInputBorder(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
                 const Padding(
                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: Text(
+                    'Email',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Phone Number',
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      hintText: 'Active Email Address',
+                      border: UnderlineInputBorder(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: Text(
+                    'User Password',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: TextField(
+                    controller: passwordController,
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
                       border: UnderlineInputBorder(),
                     ),
                   ),
@@ -147,11 +172,17 @@ class Signup extends StatelessWidget {
                 const SizedBox(height: 30),
                 Center(
                   child: AppButton(
-                    onPressed: () {
-                      // navigate to login page
-                    },
-                    buttonText: 'Sign Up',
-                  ),
+                onPressed: () async {
+                  await AuthService().signup(
+                    context: context,
+                    name: nameController.text,
+                    phone: phoneController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+                },
+                buttonText: 'Sign Up',
+              ),
                 ),
                 const Spacer(),
                 const Center(

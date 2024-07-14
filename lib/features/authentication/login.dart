@@ -5,6 +5,9 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -36,7 +39,7 @@ class Login extends StatelessWidget {
                 ),
                 const Spacer(),
                 const Text(
-                  '     Login',
+                  '    Login',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 const Spacer(flex: 2),
@@ -46,14 +49,15 @@ class Login extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20.0),
               child: Text(
-                'Name',
+                'User Name',
                 style: TextStyle(fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: TextField(
-                decoration: InputDecoration(
+                controller: emailController,
+                decoration: const InputDecoration(
                   hintText: '   Username/Phone/Email',
                   border: UnderlineInputBorder(),
                 ),
@@ -67,11 +71,12 @@ class Login extends StatelessWidget {
                 style: TextStyle(fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: TextField(
-                decoration: InputDecoration(
-                  hintText: '   Active Email Address',
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  hintText: '   Password',
                   border: UnderlineInputBorder(),
                 ),
                 obscureText: true,
@@ -96,24 +101,15 @@ class Login extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const Dashboard()),
+              child: AppButton(
+                onPressed: () async {
+                  await AuthService().login(
+                    context: context,
+                    email: emailController.text,
+                    password: passwordController.text,
                   );
                 },
-                child: Container(
-                    width: 270,
-                    height: 51,
-                    decoration: BoxDecoration(
-                        color: const Color(0xFF0F0159),
-                        borderRadius: BorderRadius.circular(14.0)),
-                    child: const Center(
-                        child: Text(
-                      'Login',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ))),
+                buttonText: 'Login',
               ),
             ),
             const Spacer(),

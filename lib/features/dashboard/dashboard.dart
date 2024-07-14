@@ -150,7 +150,7 @@ class _DashboardState extends State<Dashboard> {
                                   fontWeight: FontWeight.w500, fontSize: 25.0),
                             ),
                             Text(
-                              'User',
+                              'Admin',
                               style: TextStyle(
                                   color: appGreen,
                                   fontWeight: FontWeight.normal,
@@ -158,10 +158,19 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ],
                         ),
-                        Image.asset(
-                          "assets/img/usericon.png",
-                          width: 50,
-                          height: 50,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Profile()),
+                            );
+                          },
+                          child: Image.asset(
+                            "assets/img/usericon.png",
+                            width: 50,
+                            height: 50,
+                          ),
                         ),
                       ],
                     ),

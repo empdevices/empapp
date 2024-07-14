@@ -46,9 +46,9 @@ class Logout extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const SizedBox(
-                            width:200,
-                            child:  Text(
-                            'Remember Tracking our emissions is a must!',
+                            width: 200,
+                            child: Text(
+                              'Remember Tracking our emissions is a must!',
                               style: TextStyle(fontSize: 20),
                               textAlign: TextAlign.center,
                             ),
@@ -63,12 +63,10 @@ class Logout extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(14),
                                 color: Colors.black),
                             child: TextButton(
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LogorSign()),
-                              );
+                              onPressed: () async {
+                                await AuthService().signout(
+                                  context: context,
+                                );
                               },
                               child: const Text(
                                 "Confirm Logout",

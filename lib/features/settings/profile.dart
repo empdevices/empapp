@@ -43,7 +43,7 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "The User",
+                      "The Admin",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -168,17 +168,24 @@ class Profile extends StatelessWidget {
                           const SizedBox(
                             height: 15,
                           ),
-                          ListTile(
-                            leading: const Icon(Icons.logout_outlined),
-                            title: const Text(
-                              'log Out',
-                              style: TextStyle(fontWeight: FontWeight.normal),
-                            ),
+                          GestureDetector(
                             onTap: () {
                               // Navigate to logout screen
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const Logout()));
                             },
+                            child: ListTile(
+                              leading: const Icon(Icons.logout_outlined),
+                              title: const Text(
+                                'log Out',
+                                style: TextStyle(fontWeight: FontWeight.normal),
+                              ),
+                              onTap: () {
+                                // Navigate to logout screen
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Logout()));
+                              },
+                            ),
                           ),
                         ],
                       ),

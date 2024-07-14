@@ -39,7 +39,7 @@ class SplashPge extends StatelessWidget {
                     child: Text("emission pulse",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 50.0,
+                            fontSize: 30.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
                   ),
