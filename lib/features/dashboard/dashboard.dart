@@ -10,6 +10,43 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
 
+  // A list of user data from firebase firestore
+  final List<Map<String, dynamic>> userData = [
+    {
+      'name': 'Admin',
+      'email': 'admin@gmail.com',
+      'phone': '+233276801066',
+      'hasprofpic': false,
+      'userpicture': 'assets/img/usericon.png',
+      'gender': 'female'
+    },
+  ];
+
+  late bool defprofileboy;
+  late bool defprofilegirl;
+
+  @override
+  void initState() {
+    super.initState();
+    if (userData[0]['hasprofpic'] == true) {
+      defprofileboy = false;
+      defprofilegirl = false;
+  } else if (userData[0]['gender'] == 'male') {
+      defprofileboy = true;
+      defprofilegirl = false;
+    } else {
+      defprofileboy = false;
+      defprofilegirl = true;
+    }
+    updateSharedPrefs();
+  }
+
+  // update shared preferences
+  void updateSharedPrefs() async {
+    SharedPreferences logindata = await SharedPreferences.getInstance();
+    logindata.setBool('login', false);
+  }
+
   void _onItemTapped(int index) {
     // Handle navigation based on index
     setState(() {
@@ -61,10 +98,10 @@ class _DashboardState extends State<Dashboard> {
         fontWeight: FontWeight.bold,
         color: Colors.green,
       ),
-      topLabelText: 'CO₂',
+      topLabelText: 'Emission',
       topLabelStyle: const TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.normal,
       ),
       bottomLabelText: 'Today',
       bottomLabelStyle: const TextStyle(
@@ -135,6 +172,7 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.white,
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     const SizedBox(
                       height: 30,
@@ -150,7 +188,7 @@ class _DashboardState extends State<Dashboard> {
                                   fontWeight: FontWeight.w500, fontSize: 25.0),
                             ),
                             Text(
-                              'Admin',
+                              userData[0]['name'],
                               style: TextStyle(
                                   color: appGreen,
                                   fontWeight: FontWeight.normal,
@@ -167,7 +205,11 @@ class _DashboardState extends State<Dashboard> {
                             );
                           },
                           child: Image.asset(
-                            "assets/img/usericon.png",
+                            defprofilegirl
+                                ? "assets/img/userdefgirl.png"
+                                : defprofileboy
+                                    ? "assets/img/userdefboy.png"
+                                    : "assets/img/usericon.png",
                             width: 50,
                             height: 50,
                           ),
@@ -177,12 +219,14 @@ class _DashboardState extends State<Dashboard> {
                     const SizedBox(
                       height: 30,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 5.0),
-                      child: Text(
-                        'See your carbon footprint for today!',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 14.0),
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Text(
+                          'See your carbon footprint for today!',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 14.0),
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -197,12 +241,6 @@ class _DashboardState extends State<Dashboard> {
                             initialValue: 30,
                             min: 0,
                             max: 100,
-                            onChange: (double value) {
-                              // Callback providing a value while it's being changed (with a pan gesture)
-                            },
-                            onChangeEnd: (double value) {
-                              // Callback providing a value when the user ends the change with a pan gesture
-                            },
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 16.0),
@@ -217,15 +255,18 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    SmallAppButtonLight(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Details()),
-                          );
-                        },
-                        buttonText: "View Details"),
+                    Padding(
+                      padding: const EdgeInsets.only(right:40.0),
+                      child: SmallAppButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Details()),
+                            );
+                          },
+                          buttonText: "View Details"),
+                    ),
                     const Column(
                       children: [
                         SizedBox(height: 10),

@@ -1,7 +1,8 @@
 import 'package:empapp/barrel.dart';
-import 'package:firebase_core/firebase_core.dart';
-
 import 'firebase_options.dart';
+
+late SharedPreferences logindata;
+bool newuser = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,38 +22,59 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Poppins',
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(fontFamily: 'Poppins'),
-          displayMedium: TextStyle(fontFamily: 'Poppins'),
-          displaySmall: TextStyle(fontFamily: 'Poppins'),
-          headlineLarge: TextStyle(fontFamily: 'Poppins'),
-          headlineMedium: TextStyle(fontFamily: 'Poppins'),
-          headlineSmall: TextStyle(fontFamily: 'Poppins'),
-          titleLarge: TextStyle(fontFamily: 'Poppins'),
-          titleMedium: TextStyle(fontFamily: 'Poppins'),
-          titleSmall: TextStyle(fontFamily: 'Poppins'),
-          bodyLarge: TextStyle(fontFamily: 'Poppins'),
-          bodyMedium: TextStyle(fontFamily: 'Poppins'),
-          bodySmall: TextStyle(fontFamily: 'Poppins'),
-          labelLarge: TextStyle(fontFamily: 'Poppins'),
-          labelMedium: TextStyle(fontFamily: 'Poppins'),
-          labelSmall: TextStyle(fontFamily: 'Poppins'),)
-      ),
+          fontFamily: 'Poppins',
+          textTheme: const TextTheme(
+            displayLarge: TextStyle(fontFamily: 'Poppins'),
+            displayMedium: TextStyle(fontFamily: 'Poppins'),
+            displaySmall: TextStyle(fontFamily: 'Poppins'),
+            headlineLarge: TextStyle(fontFamily: 'Poppins'),
+            headlineMedium: TextStyle(fontFamily: 'Poppins'),
+            headlineSmall: TextStyle(fontFamily: 'Poppins'),
+            titleLarge: TextStyle(fontFamily: 'Poppins'),
+            titleMedium: TextStyle(fontFamily: 'Poppins'),
+            titleSmall: TextStyle(fontFamily: 'Poppins'),
+            bodyLarge: TextStyle(fontFamily: 'Poppins'),
+            bodyMedium: TextStyle(fontFamily: 'Poppins'),
+            bodySmall: TextStyle(fontFamily: 'Poppins'),
+            labelLarge: TextStyle(fontFamily: 'Poppins'),
+            labelMedium: TextStyle(fontFamily: 'Poppins'),
+            labelSmall: TextStyle(fontFamily: 'Poppins'),
+          )),
       home: const SplashWrapper(),
     );
   }
 }
 
-class SplashWrapper extends StatelessWidget {
+class SplashWrapper extends StatefulWidget {
   const SplashWrapper({super.key});
+
+  @override
+  State<SplashWrapper> createState() => _SplashWrapperState();
+}
+
+class _SplashWrapperState extends State<SplashWrapper> {
+  void checkIfAlreadyLogin() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata.getBool('login') ?? true);
+    if (!newuser) {
+      Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(builder: (context) => const Dashboard()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(builder: (context) => const LogorSign()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LogorSign()),
-      );
+      checkIfAlreadyLogin();
     });
     return const SplashPge();
   }

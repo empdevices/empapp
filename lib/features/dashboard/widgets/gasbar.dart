@@ -25,7 +25,7 @@ class _GasBarState extends State<GasBar> {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
             width: 50,
             height: 50,
-            child: const Iconify(Iwwa.co2),
+            child: const Iconify(MdiLight.cloud),
           ),
           Container(
             decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class _GasBarState extends State<GasBar> {
                       style: const TextStyle(
                         color: Colors.black,
                         fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
@@ -61,8 +61,8 @@ class _GasBarState extends State<GasBar> {
                   widget.weight,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
               ],

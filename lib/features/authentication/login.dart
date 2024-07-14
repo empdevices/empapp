@@ -1,14 +1,20 @@
 import 'package:empapp/barrel.dart';
 import 'package:page_transition/page_transition.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Login extends StatefulWidget {
 
+  
+  const Login({super.key});
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -29,7 +35,7 @@ class Login extends StatelessWidget {
                       Navigator.of(context).push(
                         PageTransition(
                           type: PageTransitionType.fade,
-                          childCurrent: this,
+                          childCurrent: const LogorSign(),
                           duration: const Duration(milliseconds: 400),
                           reverseDuration: const Duration(milliseconds: 400),
                           child: const LogorSign(),
@@ -95,7 +101,7 @@ class Login extends StatelessWidget {
                   Navigator.of(context).push(
                     PageTransition(
                       type: PageTransitionType.fade,
-                      childCurrent: this,
+                      childCurrent: const RecoverPass(),
                       duration: const Duration(milliseconds: 400),
                       reverseDuration: const Duration(milliseconds: 400),
                       child: const RecoverPass(),
@@ -168,7 +174,7 @@ class Login extends StatelessWidget {
                   Navigator.of(context).push(
                     PageTransition(
                       type: PageTransitionType.rightToLeftWithFade,
-                      childCurrent: this,
+                      childCurrent: const Signup(),
                       duration: const Duration(milliseconds: 450),
                       reverseDuration: const Duration(milliseconds: 450),
                       child: const Signup(),

@@ -6,6 +6,7 @@ class AuthService {
     required String email,
     required String password,
     required String name,
+    required String gender,
     required String phone,
     required BuildContext context,
   }) async {
@@ -64,6 +65,7 @@ class AuthService {
         // Save user information to Firestore
         await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
           'fullame': name,
+          'gender': gender,
           'phone': phone,
           'email': email,
         });

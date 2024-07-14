@@ -1,8 +1,14 @@
 import 'package:empapp/barrel.dart';
 // ignore: depend_on_referenced_packages
 
-class SplashPge extends StatelessWidget {
+class SplashPge extends StatefulWidget {
   const SplashPge({super.key});
+
+  @override
+  State<SplashPge> createState() => _SplashPgeState();
+}
+
+class _SplashPgeState extends State<SplashPge> {
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +38,9 @@ class SplashPge extends StatelessWidget {
                 ),
               ),
               child: const Column(
-                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   SizedBox(
+                  SizedBox(
                     width: 210,
                     child: Text("emission pulse",
                         textAlign: TextAlign.center,
