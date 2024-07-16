@@ -11,7 +11,7 @@ class SmallAppButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         backgroundColor: const Color(0xFF0F0159),
-        minimumSize: const Size(60, 30),
+        minimumSize: const Size(50, 25),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6.0),
         ),
@@ -25,6 +25,7 @@ class SmallAppButton extends StatelessWidget {
       child: Text(
         buttonText,
         style: const TextStyle(
+          fontSize: 13,
           color: Colors.white,
           fontWeight: FontWeight.w200,
         ),
@@ -41,30 +42,31 @@ class SmallAppButtonLight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.white,
-        minimumSize: const Size(60, 30),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
-          side:  BorderSide(
-            color: mainCol,
-            width: 1,
-          ),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: mainCol),
+        borderRadius: BorderRadius.circular(5.0),
       ),
-        onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Details()),
-        );
-      },
-      child: Text(
-        buttonText,
-        style: TextStyle(
-          color: mainCol,
-          fontWeight: FontWeight.w400,
-        ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        child: Row(
+            children: [
+              Text(
+                buttonText,
+                style: TextStyle(
+                  color: mainCol,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w200,
+                ),
+              ),
+              const SizedBox(width: 20),
+               Icon(
+                Icons.arrow_drop_down,
+                color: mainCol,
+                size: 15,
+              ),
+            ],
+          ),
       ),
     );
   }

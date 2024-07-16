@@ -64,8 +64,8 @@ class AuthService {
       if (user != null) {
         // Save user information to Firestore
         await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
-          'fullame': name,
-          'gender': gender,
+          'fullname': name,
+          'gender': gender.toLowerCase(),
           'phone': phone,
           'email': email,
         });

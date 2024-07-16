@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:intl/intl.dart';
 
 class BarChat extends StatefulWidget {
   const BarChat({super.key});
@@ -8,6 +9,32 @@ class BarChat extends StatefulWidget {
 }
 
 class _BarChatState extends State<BarChat> {
+  // Create a DateTime object
+    late DateTime today = DateTime.now();
+
+    // Format the DateTime object
+    late String formattedDate = DateFormat('d MMMM yyyy').format(today);
+
+    // Add suffix to the day
+    String daySuffix(int day) {
+      if (day >= 11 && day <= 13) {
+        return 'th';
+      }
+      switch (day % 10) {
+        case 1:
+          return 'st';
+        case 2:
+          return 'nd';
+        case 3:
+          return 'rd';
+        default:
+          return 'th';
+      }
+    }
+
+    late String dayWithSuffix = '${today.day}${daySuffix(today.day)}';
+    late String finalFormattedDate = '$dayWithSuffix ${DateFormat('MMMM, yyyy').format(today)}';
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,22 +44,22 @@ class _BarChatState extends State<BarChat> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SmallAppButtonLight(
-                  onPressed: () {
-                    // navigate to login page
-                  },
-                  buttonText: 'More History →',
+                Text(
+                  finalFormattedDate,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.0,
+                  ),
                 ),
                 const SizedBox(
                   width: 20,
                 ),
-                const Text(
-                  'This Week',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14.0,
-                  ),
-                )
+                SmallAppButtonLight(
+                  onPressed: () {
+                    // navigate to login page
+                  },
+                  buttonText: 'Week',
+                ),
               ],
             ),
             const SizedBox(

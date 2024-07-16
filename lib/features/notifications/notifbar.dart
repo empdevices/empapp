@@ -38,6 +38,7 @@ class _NotifBarState extends State<NotifBar> {
               width: 50,
               height: 50,
               child: Icon(
+                size: 20,
                 widget.icon,
                 color: widget.btnType == 'danger'
                     ? Colors.red
@@ -56,8 +57,8 @@ class _NotifBarState extends State<NotifBar> {
                   Text(
                     widget.heading,
                     style:  TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                       // color based on btnType value
                       color: widget.btnType == 'danger'
                           ? Colors.red
@@ -73,14 +74,14 @@ class _NotifBarState extends State<NotifBar> {
                   Text(
                     widget.subheading,
                     style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w200,
                     ),
                   ),
                 ],
                            ),
              ),
-            const Iconify(Iwwa.close)
+            const Iconify(Iwwa.close, size: 16,)
           ],
         ),
       ),

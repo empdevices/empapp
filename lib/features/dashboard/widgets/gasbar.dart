@@ -23,8 +23,8 @@ class _GasBarState extends State<GasBar> {
         children: [
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-            width: 50,
-            height: 50,
+            width: 45,
+            height: 45,
             child: const Iconify(MdiLight.cloud),
           ),
           Container(

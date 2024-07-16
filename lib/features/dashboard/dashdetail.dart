@@ -10,51 +10,6 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
-    final customWidth = CustomSliderWidths(
-      trackWidth: 8,
-      progressBarWidth: 8,
-      shadowWidth: 1,
-    );
-
-    final customColors = CustomSliderColors(
-      trackColor: Colors.grey[200],
-      progressBarColors: [Colors.green, Colors.red],
-      shadowColor: Colors.white,
-      shadowMaxOpacity: 00,
-      shadowStep: 1,
-    );
-
-    final info = InfoProperties(
-      modifier: (double value) {
-        final kgValue = value.toStringAsFixed(1);
-        return '$kgValue kg';
-      },
-      mainLabelStyle: const TextStyle(
-        fontSize: 42,
-        fontWeight: FontWeight.bold,
-        color: Colors.green,
-      ),
-      topLabelText: 'CO₂',
-      topLabelStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-      bottomLabelText: 'Today',
-      bottomLabelStyle: const TextStyle(
-        fontSize: 20,
-        color: Colors.black,
-      ),
-    );
-
-    final customAppearance = CircularSliderAppearance(
-      customWidths: customWidth,
-      customColors: customColors,
-      infoProperties: info,
-      startAngle: 270,
-      angleRange: 360,
-      size: 200,
-    );
-
     return Scaffold(
       backgroundColor: appGreen,
       appBar: PreferredSize(
@@ -64,12 +19,12 @@ class _DetailsState extends State<Details> {
             color: Colors.white, // Set your desired color here
           ),
           title: const Padding(
-            padding:  EdgeInsets.all(40.0),
-            child:  Text(
-              'CO₂ : 30 kg',
+            padding: EdgeInsets.all(40.0),
+            child: Text(
+              'Emissions - 30kg',
               style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w300,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w500,
                   color: Colors.white),
             ),
           ),
@@ -81,10 +36,10 @@ class _DetailsState extends State<Details> {
                 color: Colors.white,
               ),
               onPressed: () {
-                  // navigate to settings page
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SettingsPage()));
-                },
+                // navigate to settings page
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SettingsPage()));
+              },
             ),
           ],
         ),
@@ -143,23 +98,12 @@ class _DetailsState extends State<Details> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
+                    const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SleekCircularSlider(
-                            appearance: customAppearance,
-                            initialValue: 30,
-                            min: 0,
-                            max: 100,
-                            onChange: (double value) {
-                              // Callback providing a value while it's being changed (with a pan gesture)
-                            },
-                            onChangeEnd: (double value) {
-                              // Callback providing a value when the user ends the change with a pan gesture
-                            },
-                          ),
-                          const Padding(
+                          CirclerIndicator(gas: 'CO₂', weight: 30),
+                          Padding(
                             padding: EdgeInsets.only(top: 16.0),
                             child: Text(
                               'Good Job!',
@@ -198,22 +142,24 @@ class _DetailsState extends State<Details> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     const Column(
                       children: [
                         GasBar(
                             gas: "CO₂",
-                            time: "2 minutes ago",
-                            weight: "23.5kg"),
+                            time: "Captured 2 minutes ago",
+                            weight: "14.6kg"),
                         SizedBox(height: 20),
                         GasBar(
                             gas: "NOx",
-                            time: "2 minutes ago",
-                            weight: "15.3kg"),
+                            time: "Captured 2 minutes ago",
+                            weight: "7.8kg"),
                         SizedBox(height: 20),
                         GasBar(
-                            gas: "SO₂", time: "2 minutes ago", weight: "2.8kg"),
+                            gas: "SO₂",
+                            time: "Captured 2 minutes ago",
+                            weight: "6.2kg"),
                       ],
                     ),
                     Padding(
@@ -236,9 +182,12 @@ class _DetailsState extends State<Details> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
-                    const Statistics()
+                    const Statistics(),
+                    const SizedBox(
+                      height: 50,
+                    ),
                   ],
                 ),
               ),
