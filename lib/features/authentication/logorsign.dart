@@ -1,7 +1,4 @@
-import 'package:empapp/features/authentication/login.dart';
-import 'package:empapp/features/authentication/signup.dart';
-import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:empapp/barrel.dart';
 
 class LogorSign extends StatelessWidget {
   const LogorSign({super.key});

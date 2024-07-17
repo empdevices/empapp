@@ -17,10 +17,17 @@ class SmallAppButton extends StatelessWidget {
         ),
       ),
         onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Details()),
-        );
+         Navigator.of(context)
+          .push(
+        PageTransition(
+          type: PageTransitionType.size,
+          alignment: Alignment.bottomCenter,
+          childCurrent: this,
+          duration: const Duration(milliseconds: 1000),
+          reverseDuration: const Duration(milliseconds: 1000),
+          child: const Details(),
+        ),
+      );
       },
       child: Text(
         buttonText,

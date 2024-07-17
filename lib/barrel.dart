@@ -66,3 +66,7 @@ export 'package:d_chart/d_chart.dart';
 export 'dart:math';
 
 export 'package:page_transition/page_transition.dart';
+
+export 'package:empapp/common/widgets/popup.dart';
+
+export 'package:empapp/common/widgets/exitxbtn.dart';

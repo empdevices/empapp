@@ -1,5 +1,4 @@
 import 'package:empapp/barrel.dart';
-import 'package:page_transition/page_transition.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});

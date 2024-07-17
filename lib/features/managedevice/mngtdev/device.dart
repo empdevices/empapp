@@ -115,8 +115,8 @@ class _DeviceState extends State<Device> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
                 color: Colors.white,
               ),
               child: SingleChildScrollView(
@@ -188,7 +188,12 @@ class _DeviceState extends State<Device> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          _showDisconectPopup();
+                          showEmpPopup(
+                              context: context,
+                              message: 'Device Server not\nactive.',
+                              icon: Icons.dangerous,
+                              iconColor: Colors.red,
+                              buttontext: 'Continue');
                         },
                         child: Container(
                             decoration: BoxDecoration(
@@ -200,7 +205,12 @@ class _DeviceState extends State<Device> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          _showDeletePopup();
+                          showEmpPopup(
+                              context: context,
+                              message: 'Device Server not\nactive.',
+                              icon: Icons.dangerous,
+                              iconColor: Colors.red,
+                              buttontext: 'Continue');
                         },
                         child: Container(
                             decoration: BoxDecoration(

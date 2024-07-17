@@ -1,5 +1,4 @@
 import 'package:empapp/barrel.dart';
-import 'package:page_transition/page_transition.dart';
 
 class VerifyPge extends StatelessWidget {
   const VerifyPge({super.key});

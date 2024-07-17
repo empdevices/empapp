@@ -1,10 +1,10 @@
 import 'package:empapp/barrel.dart';
 
 class CirclerIndicator extends StatefulWidget {
-  final String gas;
+  final String timeframe;
   final double weight;
 
-  const CirclerIndicator({required this.gas, required this.weight, super.key});
+  const CirclerIndicator({required this.timeframe, required this.weight, super.key});
 
   @override
   State<CirclerIndicator> createState() => _CirclerIndicatorState();
@@ -40,7 +40,7 @@ class _CirclerIndicatorState extends State<CirclerIndicator> {
       fontSize: 18,
       fontWeight: FontWeight.normal,
     ),
-    bottomLabelText: 'Today',
+    bottomLabelText: widget.timeframe,
     bottomLabelStyle: const TextStyle(
       fontSize: 16,
       color: Colors.black,

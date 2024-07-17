@@ -23,49 +23,14 @@ class _LoadScreenState extends State<LoadScreen> {
         if (progress >= 1.0) {
           progress = 1.0;
           timer.cancel();
-          _showConnectedPopup();
+          showEmpPopup(context: context, 
+          message: 'Device Server not\nactive.', 
+          icon: Icons.dangerous, 
+          iconColor: Colors.red, 
+          buttontext: 'Continue');
         }
       });
     });
-  }
-
-  void _showConnectedPopup() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children:[
-              const Icon(Icons.check_circle, color: Colors.green, size: 50),
-              const SizedBox(height: 20),
-              const Text(
-                'Carbon EX 500\nconnected.',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              Center(
-                    child: AppButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => const HostMachine(),
-                        ),
-                      );// navigate to login page
-                      },
-                      buttonText: 'Done',
-                    ),
-                  ),
-            ],
-          ),
-        );
-      },
-    );
   }
 
   @override

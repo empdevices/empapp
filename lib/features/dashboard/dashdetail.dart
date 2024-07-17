@@ -102,7 +102,7 @@ class _DetailsState extends State<Details> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CirclerIndicator(gas: 'CO₂', weight: 30),
+                          CirclerIndicator(timeframe: 'Today', weight: 30),
                           Padding(
                             padding: EdgeInsets.only(top: 16.0),
                             child: Text(

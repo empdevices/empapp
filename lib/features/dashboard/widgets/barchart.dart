@@ -10,30 +10,31 @@ class BarChat extends StatefulWidget {
 
 class _BarChatState extends State<BarChat> {
   // Create a DateTime object
-    late DateTime today = DateTime.now();
+  late DateTime today = DateTime.now();
 
-    // Format the DateTime object
-    late String formattedDate = DateFormat('d MMMM yyyy').format(today);
+  // Format the DateTime object
+  late String formattedDate = DateFormat('d MMMM yyyy').format(today);
 
-    // Add suffix to the day
-    String daySuffix(int day) {
-      if (day >= 11 && day <= 13) {
-        return 'th';
-      }
-      switch (day % 10) {
-        case 1:
-          return 'st';
-        case 2:
-          return 'nd';
-        case 3:
-          return 'rd';
-        default:
-          return 'th';
-      }
+  // Add suffix to the day
+  String daySuffix(int day) {
+    if (day >= 11 && day <= 13) {
+      return 'th';
     }
+    switch (day % 10) {
+      case 1:
+        return 'st';
+      case 2:
+        return 'nd';
+      case 3:
+        return 'rd';
+      default:
+        return 'th';
+    }
+  }
 
-    late String dayWithSuffix = '${today.day}${daySuffix(today.day)}';
-    late String finalFormattedDate = '$dayWithSuffix ${DateFormat('MMMM, yyyy').format(today)}';
+  late String dayWithSuffix = '${today.day}${daySuffix(today.day)}';
+  late String finalFormattedDate =
+      '$dayWithSuffix ${DateFormat('MMMM, yyyy').format(today)}';
 
   @override
   Widget build(BuildContext context) {
@@ -105,28 +106,126 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-            height: height,
-            width: 12,
-            decoration: BoxDecoration(
-              color: mainCol,
-              borderRadius: BorderRadius.circular(10),
+    void showBarPopup() {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
-            child: null),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w400,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [EmpExitBtn()],
+                ),
+                const SizedBox(height: 20),
+                const CirclerIndicator(timeframe: 'Mon', weight: 30),
+                const SizedBox(height: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          color: mainCol,
+                          size: 8,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        const Text(
+                          "CO₂ : 14.5 g/km",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          color: Colors.red,
+                          size: 8,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "NOX : 7.8 g/km",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          color: Color.fromARGB(255, 214, 211, 0),
+                          size: 8,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "SO2 : 6.2 g/km",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+              ],
+            ),
+          );
+        },
+      );
+    }
+
+    return GestureDetector(
+      onTap: showBarPopup,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+              height: height,
+              width: 12,
+              decoration: BoxDecoration(
+                color: mainCol,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: null),
+          const SizedBox(
+            height: 5,
           ),
-        ),
-      ],
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
