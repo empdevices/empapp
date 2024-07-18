@@ -7,7 +7,7 @@ class AddDeviceHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

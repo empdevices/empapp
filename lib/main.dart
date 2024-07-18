@@ -11,7 +11,8 @@ void main() async {
   );
 
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => ThemeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      theme: EmpAppTheme.lightTheme,
-      darkTheme: EmpAppTheme.darkTheme,
+      theme: Provider.of<ThemeProvider>(context).themeMode == ThemeMode.light
+          ? EmpAppTheme.lightTheme
+          : EmpAppTheme.darkTheme,
       home: const SplashWrapper(),
     );
   }

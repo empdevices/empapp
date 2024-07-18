@@ -153,9 +153,10 @@ class AuthService {
       await FirebaseAuth.instance.signOut();
       await Future.delayed(const Duration(seconds: 1));
       // ignore: use_build_context_synchronously
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LogorSign()),
-      );
+      Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const LogorSign()),
+      (Route<dynamic> route) => false,
+    );
     } catch (e) {
       rethrow;
     }

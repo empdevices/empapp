@@ -6,11 +6,18 @@ class EmpAppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.light(
+      // Light = MainColor | Dark = White
       primary: mainCol,
+
+      // Light = Black | Dark = White 
       onPrimary: Colors.black,
+
+      // Light = MainColor | Dark = Black
       primaryFixed: mainCol,
+
+      // Light = White | Dark = Black
       secondary: Colors.white,
-      tertiary: appGrey,
+      
     ),
     appBarTheme: EmpAppBarTheme.lightAppBarTheme,
     scaffoldBackgroundColor: mainCol,
@@ -25,7 +32,6 @@ class EmpAppTheme {
       onPrimary: Colors.white,
       primaryFixed: Colors.black,
       secondary: Colors.black,
-      tertiary: Colors.black,
     ),
     appBarTheme: EmpAppBarTheme.darkAppBarTheme,
     scaffoldBackgroundColor: Colors.black38,

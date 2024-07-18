@@ -24,10 +24,13 @@ export 'package:empapp/features/authentication/login.dart';
 export 'package:empapp/features/managedevice/adddevhome.dart';
 export 'package:empapp/features/authentication/recovery.dart';
 
+// Icons 
+export 'package:iconify_flutter/icons/mdi_light.dart';
 export 'package:iconify_flutter/iconify_flutter.dart';
 export 'package:iconify_flutter/icons/cil.dart';
 export 'package:iconify_flutter/icons/material_symbols.dart';
 export 'package:iconify_flutter/icons/iwwa.dart';
+export 'package:iconify_flutter/icons/carbon.dart';
 
 export 'package:empapp/features/managedevice/mngtdev/devices.dart';
 export 'package:empapp/features/managedevice/mngtdev/device.dart';
@@ -56,9 +59,6 @@ export 'package:cloud_firestore/cloud_firestore.dart';
 
 export 'package:shared_preferences/shared_preferences.dart';
 
-
-export 'package:iconify_flutter/icons/mdi_light.dart';
-
 export 'package:empapp/features/dashboard/widgets/indicator.dart';
 
 export 'package:d_chart/d_chart.dart';
@@ -80,3 +80,7 @@ export 'package:empapp/common/texttheme.dart';
 export 'package:empapp/common/appbars.dart';
 
 export 'package:empapp/common/helpers.dart';
+
+export 'package:empapp/common/themeprovider.dart';
+
+export 'package:provider/provider.dart';

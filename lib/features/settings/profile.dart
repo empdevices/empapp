@@ -20,9 +20,9 @@ class Profile extends StatelessWidget {
                   color: Colors.white),
             ),
           ),
-          backgroundColor: mainCol, // Setting the background color
+          backgroundColor: Theme.of(context).colorScheme.primaryFixed, // Setting the background color
         ),
-        backgroundColor: const Color(0xFF0F0159),
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
         body: Column(children: [
           const SizedBox(
             height: 30,
@@ -64,9 +64,9 @@ class Profile extends StatelessWidget {
           Expanded(
               child: Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30))),
                   child: Stack(children: [
@@ -168,13 +168,7 @@ class Profile extends StatelessWidget {
                           const SizedBox(
                             height: 15,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              // Navigate to logout screen
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const Logout()));
-                            },
-                            child: ListTile(
+                          ListTile(
                               leading: const Icon(Icons.logout_outlined),
                               title: const Text(
                                 'log Out',
@@ -186,7 +180,6 @@ class Profile extends StatelessWidget {
                                   builder: (context) => const Logout()));
                               },
                             ),
-                          ),
                         ],
                       ),
                     ),

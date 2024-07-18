@@ -52,8 +52,8 @@ class _GasBarState extends State<GasBar> {
                     ),
                     Text(
                       widget.time,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary,
+                      style: const TextStyle(
+                        color: Colors.grey,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),

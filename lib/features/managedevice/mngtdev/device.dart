@@ -81,7 +81,7 @@ class _DeviceState extends State<Device> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainCol,
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80.0),
         child: AppBar(
@@ -95,7 +95,9 @@ class _DeviceState extends State<Device> {
                 fontWeight: FontWeight.w300,
                 color: Colors.white),
           ),
-          backgroundColor: mainCol, // Setting the background color
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primaryFixed, // Setting the background color
           actions: [
             IconButton(
               icon: const Icon(
@@ -113,11 +115,11 @@ class _DeviceState extends State<Device> {
           children: [
             Container(
               height: MediaQuery.of(context).size.height,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: SingleChildScrollView(
                   child: Column(
@@ -126,7 +128,6 @@ class _DeviceState extends State<Device> {
                   const Text(
                     '38',
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 120,
                       fontWeight: FontWeight.w400,
                     ),
@@ -134,7 +135,6 @@ class _DeviceState extends State<Device> {
                   const Text(
                     'days',
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.normal,
                     ),
@@ -177,7 +177,6 @@ class _DeviceState extends State<Device> {
                   const Text(
                     'Actions',
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.normal,
                     ),
@@ -201,7 +200,9 @@ class _DeviceState extends State<Device> {
                                 color: appGrey),
                             width: 120,
                             height: 50,
-                            child: const Icon(Icons.change_circle)),
+                            child: const Icon(
+                                color: Colors.black,
+                                Icons.change_circle)),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -218,7 +219,9 @@ class _DeviceState extends State<Device> {
                                 color: appGrey),
                             width: 120,
                             height: 50,
-                            child: const Icon(Icons.delete_forever)),
+                            child: const Icon(
+                                color: Colors.black,
+                                Icons.delete_forever)),
                       ),
                     ],
                   )

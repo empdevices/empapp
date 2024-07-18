@@ -11,7 +11,7 @@ class Signup extends StatelessWidget {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -180,7 +180,7 @@ class Signup extends StatelessWidget {
                               width: 280,
                               height: 51,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(8),
                                   boxShadow: [
                                     BoxShadow(

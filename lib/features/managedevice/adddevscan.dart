@@ -30,7 +30,7 @@ class _ScanState extends State<Scan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(

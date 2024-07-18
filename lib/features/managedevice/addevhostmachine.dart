@@ -7,7 +7,7 @@ class HostMachine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -24,7 +24,7 @@ class HostMachine extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => const Scan(),
                       ),
-                    ); // Handle back action
+                    );
                   },
                   child: const Text(
                     'Back',

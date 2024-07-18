@@ -5,6 +5,11 @@ class Logout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void updateSharedPrefs() async {
+    SharedPreferences logindata = await SharedPreferences.getInstance();
+    logindata.setBool('login', true);
+  }
     return Scaffold(
         body: Stack(children: [
       Container(
@@ -39,7 +44,7 @@ class Logout extends StatelessWidget {
                       height: 250.0,
                       width: MediaQuery.of(context).size.width - 40,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.secondary,
                         borderRadius: BorderRadius.circular(35.0),
                       ),
                       child: Column(
@@ -61,9 +66,10 @@ class Logout extends StatelessWidget {
                             width: 200,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(14),
-                                color: Colors.black),
+                                color: mainCol),
                             child: TextButton(
                               onPressed: () async {
+                                updateSharedPrefs();
                                 await AuthService().signout(
                                   context: context,
                                 );

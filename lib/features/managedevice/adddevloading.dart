@@ -36,6 +36,7 @@ class _LoadScreenState extends State<LoadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(

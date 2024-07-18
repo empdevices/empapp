@@ -70,15 +70,15 @@ class DeviceBoxState extends State<DeviceBox> {
                       'Active',
                       style: TextStyle(
                         color: Colors.black54,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                     SizedBox(width: 20),
                     Text(
-                      'Mercedes Benz',
+                      'Machine: M Benz C100',
                       style: TextStyle(
                         color: Colors.black54,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                 ],

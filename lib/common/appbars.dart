@@ -13,7 +13,7 @@ class EmpAppBarTheme {
     ),
   );
   static final darkAppBarTheme = AppBarTheme(
-    backgroundColor: darkBackground,
+    backgroundColor: Colors.black,
     elevation: 0,
     iconTheme: const IconThemeData(color: Colors.white),
     titleTextStyle: TextStyle(

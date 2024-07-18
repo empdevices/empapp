@@ -43,6 +43,7 @@ dependencies:
   google_fonts: any
   iconify_flutter: ^0.0.5
 
+
   firebase: ^9.0.3
   firebase_core: ^2.32.0
   firebase_storage: ^11.7.5

@@ -44,8 +44,8 @@ class _TipsBoxState extends State<TipsBox> {
                 ),
                 Text(
                   widget.tip,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                  style: const TextStyle(
+                    color: Colors.grey,
                     fontSize: 12,
                     fontWeight: FontWeight.normal,
                   ),

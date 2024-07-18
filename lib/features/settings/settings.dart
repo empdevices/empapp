@@ -10,7 +10,6 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -26,9 +25,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: Colors.white),
           ),
         ),
-        backgroundColor: mainCol, // Setting the background color
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       ),
-      backgroundColor: const Color(0xFF0F0159),
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       body: Column(children: [
         const SizedBox(
           height: 30,
@@ -53,9 +52,9 @@ class _SettingsPageState extends State<SettingsPage> {
         Expanded(
           child: Container(
             width: double.infinity,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30))),
             child: Stack(children: [
@@ -64,33 +63,33 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: ListView(
                   padding: const EdgeInsets.all(16.0),
                   children: [
-                    ListTile(
-                      leading: const Icon(Icons.notifications_outlined),
-                      title: const Text(
-                        'Notifications',
-                        style: TextStyle(fontWeight: FontWeight.normal),
-                      ),
-                      onTap: () {
-                        // Navigate to notifications screen
-                        Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const Notifications()));
-
-                      },
-                    ),
                     const SizedBox(
                       height: 15,
                     ),
-                    SwitchListTile(
-                      secondary: const Icon(Icons.dark_mode_outlined),
+                    ListTile(
+                      leading: Iconify(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        Carbon.brightness_contrast),
                       title: const Text(
                         'Dark Mode',
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
-                      value:
-                          false, // Replace with the current value from your app's state
-                      onChanged: (bool value) {
-                        // Handle dark mode toggle
-                      },
+                      trailing: Switch(
+                        value: Provider.of<ThemeProvider>(context).themeMode ==
+                            ThemeMode.dark,
+                        onChanged: (bool value) {
+                          Provider.of<ThemeProvider>(context, listen: false)
+                              .toggleTheme(value);
+                        },
+                        activeColor:
+                            Colors.black, // Color of the switch when it is on
+                        inactiveThumbColor: Colors
+                            .black, // Color of the switch when it is off
+                        activeTrackColor: Colors
+                            .white, // Color of the track when switch is on
+                        inactiveTrackColor: Colors
+                            .white, // Color of the track when switch is off
+                      ),
                     ),
                     const SizedBox(
                       height: 15,
