@@ -71,7 +71,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0159),
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80.0),
         child: AppBar(
@@ -88,7 +88,7 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.white),
             ),
           ),
-          backgroundColor: mainCol, // Setting the background color
+          backgroundColor: Theme.of(context).colorScheme.primaryFixed, // Setting the background color
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -118,11 +118,11 @@ class _DashboardState extends State<Dashboard> {
               return SingleChildScrollView(
                 child: Container(
                   height: 800,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20)),
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: const Center(
                     child: CircularProgressIndicator(),
@@ -135,11 +135,11 @@ class _DashboardState extends State<Dashboard> {
               return SingleChildScrollView(
                 child: Container(
                   height: 800,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20)),
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: const Center(
                     child: Text('Error fetching user details'),
@@ -167,11 +167,12 @@ class _DashboardState extends State<Dashboard> {
                   Container(
                     decoration: const BoxDecoration(),
                     child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20)),
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.secondary,
+                        
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -244,7 +245,8 @@ class _DashboardState extends State<Dashboard> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CirclerIndicator(timeframe: 'Today', weight: 30),
+                                CirclerIndicator(
+                                    timeframe: 'Today', weight: 30),
                                 Padding(
                                   padding: EdgeInsets.only(top: 16.0),
                                   child: Text(
@@ -360,18 +362,27 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        backgroundColor: Colors.white, // Set your desired background color
-        items: const <BottomNavigationBarItem>[
+        backgroundColor: Theme.of(context).colorScheme.secondary, // Set your desired background color
+        selectedItemColor: Theme.of(context).colorScheme.onPrimary, // Set the color for the selected item
+        unselectedItemColor:
+            Theme.of(context).colorScheme.onPrimary, // Set the color for the unselected items
+        items:  <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Iconify(MaterialSymbols.home_rounded),
-            label: 'Home', // Remove label text
+            icon: Iconify(
+              color :Theme.of(context).colorScheme.onPrimary,
+              MaterialSymbols.home_rounded),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Iconify(MaterialSymbols.devices_other), // widget
+            icon: Iconify(
+              color :Theme.of(context).colorScheme.onPrimary,
+              MaterialSymbols.devices_other), // widget
             label: 'Devices', // Remove label text
           ),
           BottomNavigationBarItem(
-            icon: Iconify(Cil.bell),
+            icon: Iconify(
+              color :Theme.of(context).colorScheme.onPrimary,
+              Cil.bell),
             label: 'Notifications', // Remove label text
           ),
         ],

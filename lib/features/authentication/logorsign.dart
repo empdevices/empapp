@@ -69,7 +69,7 @@ class LogorSign extends StatelessWidget {
                   height: 200.0,
                   width: 340,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                     borderRadius: BorderRadius.circular(35.0),
                   ),
                   child: Column(
@@ -88,10 +88,10 @@ class LogorSign extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'Log In',
                                   style: TextStyle(
-                                    color: Color(0xFF0F0159),
+                                  color: Theme.of(context).colorScheme.primary,
                                     fontSize: 22,
                                   ),
                                 ),
@@ -111,10 +111,10 @@ class LogorSign extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: const Text(
+                                child: Text(
                                   'Sign Up',
                                   style: TextStyle(
-                                    color: Color(0xFF0F0159),
+                                    color: Theme.of(context).colorScheme.primary,
                                     fontSize: 22,
                                   ),
                                 ),

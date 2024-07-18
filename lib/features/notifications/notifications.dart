@@ -11,12 +11,12 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainCol,
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80.0),
         child: AppBar(
           iconTheme: const IconThemeData(
-            color: Colors.white, // Set your desired color here
+            color: Colors.white,
           ),
           title: const Text(
             'Emission Pulse',
@@ -25,7 +25,7 @@ class _NotificationsState extends State<Notifications> {
                 fontWeight: FontWeight.w300,
                 color: Colors.white),
           ),
-          backgroundColor: mainCol, // Setting the background color
+          backgroundColor: Theme.of(context).colorScheme.primaryFixed,
           actions: [
             IconButton(
               icon: const Icon(
@@ -33,7 +33,6 @@ class _NotificationsState extends State<Notifications> {
                 color: Colors.white,
               ),
               onPressed: () {
-                  // navigate to settings page
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const SettingsPage()));
                 },
@@ -66,23 +65,30 @@ class _NotificationsState extends State<Notifications> {
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: const SingleChildScrollView(
                   child: Column(
                 children: [
                   NotifBar(
-                      heading: 'Device Disconnected',
-                      subheading: 'You have succesfully disconnected from the device',
-                      icon: Icons.mark_chat_read,
-                      btnType: 'danger',
-                  ),
-                  NotifBar(
-                      heading: 'Device Connected',
-                      subheading: 'You have succesfully connected to the device',
+                      heading: 'Account Created Successfully',
+                      subheading: 'You have succesfully created and logged into your account',
                       icon: Icons.check_circle,
                       btnType: 'success',
                   ),
+                  NotifBar(
+                      heading: 'Device Connection Unsuccessful',
+                      subheading: 'Your device was unable to connect to the server',
+                      icon: Icons.error,
+                      btnType: 'danger',
+                  ),
+                  NotifBar(
+                      heading: 'Your Eco Profile is Ready',
+                      subheading: 'Your Eco Profile has been created and is ready for use',
+                      icon: Icons.eco,
+                      btnType: 'info',
+                  ),
+                  
                 ]
                   )
               ),

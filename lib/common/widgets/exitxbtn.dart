@@ -9,7 +9,9 @@ class EmpExitBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Iconify(Iwwa.close, size: 16,),
+      icon:  Iconify(
+        color: Theme.of(context).colorScheme.onPrimary,
+        Iwwa.close, size: 16,),
       onPressed: () {
         Navigator.pop(context);
       },

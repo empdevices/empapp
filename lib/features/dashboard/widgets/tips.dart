@@ -38,15 +38,14 @@ class _TipsBoxState extends State<TipsBox> {
                 Text(
                   widget.heading,
                   style: const TextStyle(
-                    color: Colors.black,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   widget.tip,
-                  style: const TextStyle(
-                    color: Colors.black45,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
                     fontSize: 12,
                     fontWeight: FontWeight.normal,
                   ),

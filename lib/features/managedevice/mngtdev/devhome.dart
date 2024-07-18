@@ -12,7 +12,7 @@ class _DevicesHomeState extends State<DevicesHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFF0F0159),
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(80.0),
           child: AppBar(
@@ -29,7 +29,7 @@ class _DevicesHomeState extends State<DevicesHome> {
                     color: Colors.white),
               ),
             ),
-            backgroundColor: mainCol, // Setting the background color
+            backgroundColor: Theme.of(context).colorScheme.primaryFixed, // Setting the background color
             actions: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -63,11 +63,11 @@ class _DevicesHomeState extends State<DevicesHome> {
             child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: double.infinity,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                decoration:  BoxDecoration(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
                 child: Wrap(alignment: WrapAlignment.center, children: [
                   const DeviceBoxSmall(),

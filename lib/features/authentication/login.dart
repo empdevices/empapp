@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -180,9 +180,10 @@ class _LoginState extends State<Login> {
                     ),
                   ); // Handle sign up navigation
                 },
-                child: const Text(
+                child: Text(
                   'Sign Up ',
-                  style: TextStyle(fontSize: 26, color: Color(0xFF0F0159)),
+                  style: TextStyle(fontSize: 26, 
+                  color: Theme.of(context).colorScheme.primary,),
                 ),
               ),
             ),

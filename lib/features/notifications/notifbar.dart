@@ -33,7 +33,7 @@ class _NotifBarState extends State<NotifBar> {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.white,
+                color: Colors.transparent,
               ),
               width: 50,
               height: 50,
@@ -81,7 +81,7 @@ class _NotifBarState extends State<NotifBar> {
                 ],
                            ),
              ),
-            const Iconify(Iwwa.close, size: 16,)
+            const EmpExitBtn()
           ],
         ),
       ),
