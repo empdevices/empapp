@@ -152,7 +152,6 @@ class Bar extends StatelessWidget {
                       Text(
                         date,
                         style: const TextStyle(
-                          color: Colors.black,
                           fontSize: 22,
                           fontWeight: FontWeight.w400,
                         ),
@@ -161,7 +160,6 @@ class Bar extends StatelessWidget {
                       const Text(
                         "645KM Covered",
                         style: TextStyle(
-                          color: Colors.black,
                           fontSize: 22,
                           fontWeight: FontWeight.w400,
                         ),
@@ -181,7 +179,6 @@ class Bar extends StatelessWidget {
                           const Text(
                             "CO₂ : 14.5 g/km",
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
@@ -203,7 +200,6 @@ class Bar extends StatelessWidget {
                           Text(
                             "NOX : 7.80 g/km",
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
@@ -225,7 +221,6 @@ class Bar extends StatelessWidget {
                           Text(
                             "SO2 : 6.20 g/km",
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
