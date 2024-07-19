@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/settings/updateprofile.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -6,7 +7,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
           iconTheme: const IconThemeData(
             color: Colors.white, // Set your desired color here
           ),
@@ -20,7 +21,9 @@ class Profile extends StatelessWidget {
                   color: Colors.white),
             ),
           ),
-          backgroundColor: Theme.of(context).colorScheme.primaryFixed, // Setting the background color
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primaryFixed, // Setting the background color
         ),
         backgroundColor: Theme.of(context).colorScheme.primaryFixed,
         body: Column(children: [
@@ -51,8 +54,7 @@ class Profile extends StatelessWidget {
                     ),
                     Text("theuser@gmail.com",
                         style: TextStyle(color: Colors.white)),
-                    Text("User City",
-                        style: TextStyle(color: Colors.white)),
+                    Text("User City", style: TextStyle(color: Colors.white)),
                   ],
                 )
               ],
@@ -82,7 +84,16 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle notifications settings
+                              Navigator.of(context).push(
+                                PageTransition(
+                                  type: PageTransitionType.leftToRightWithFade,
+                                  childCurrent: this,
+                                  duration: const Duration(milliseconds: 400),
+                                  reverseDuration:
+                                      const Duration(milliseconds: 400),
+                                  child: Updateprofile(),
+                                ),
+                              ); // Handle notifications settings
                             },
                           ),
                           const SizedBox(
@@ -169,17 +180,17 @@ class Profile extends StatelessWidget {
                             height: 15,
                           ),
                           ListTile(
-                              leading: const Icon(Icons.logout_outlined),
-                              title: const Text(
-                                'log Out',
-                                style: TextStyle(fontWeight: FontWeight.normal),
-                              ),
-                              onTap: () {
-                                // Navigate to logout screen
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const Logout()));
-                              },
+                            leading: const Icon(Icons.logout_outlined),
+                            title: const Text(
+                              'log Out',
+                              style: TextStyle(fontWeight: FontWeight.normal),
                             ),
+                            onTap: () {
+                              // Navigate to logout screen
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Logout()));
+                            },
+                          ),
                         ],
                       ),
                     ),
