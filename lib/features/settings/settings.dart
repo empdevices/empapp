@@ -1,13 +1,11 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/settings/cookies.dart';
+import 'package:empapp/features/settings/privacy.dart';
+import 'package:empapp/features/settings/terms.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +66,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     ListTile(
                       leading: Iconify(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        Carbon.brightness_contrast),
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          Carbon.brightness_contrast),
                       title: const Text(
                         'Dark Mode',
                         style: TextStyle(fontWeight: FontWeight.normal),
@@ -83,8 +81,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         },
                         activeColor:
                             Colors.black, // Color of the switch when it is on
-                        inactiveThumbColor: Colors
-                            .black, // Color of the switch when it is off
+                        inactiveThumbColor:
+                            Colors.black, // Color of the switch when it is off
                         activeTrackColor: Colors
                             .white, // Color of the track when switch is on
                         inactiveTrackColor: Colors
@@ -127,7 +125,15 @@ class _SettingsPageState extends State<SettingsPage> {
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle privacy policy
+                        Navigator.of(context).push(
+                          PageTransition(
+                            type: PageTransitionType.leftToRightWithFade,
+                            childCurrent: this,
+                            duration: const Duration(milliseconds: 400),
+                            reverseDuration: const Duration(milliseconds: 400),
+                            child: const Privacy(),
+                          ),
+                        ); // Handle privacy policy
                       },
                     ),
                     const SizedBox(
@@ -140,7 +146,15 @@ class _SettingsPageState extends State<SettingsPage> {
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle terms and conditions
+                        Navigator.of(context).push(
+                          PageTransition(
+                            type: PageTransitionType.leftToRightWithFade,
+                            childCurrent: this,
+                            duration: const Duration(milliseconds: 400),
+                            reverseDuration: const Duration(milliseconds: 400),
+                            child: const Terms(),
+                          ),
+                        ); // Handle terms and conditions
                       },
                     ),
                     const SizedBox(
@@ -153,7 +167,15 @@ class _SettingsPageState extends State<SettingsPage> {
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle cookies policy
+                        Navigator.of(context).push(
+                          PageTransition(
+                            type: PageTransitionType.leftToRightWithFade,
+                            childCurrent: this,
+                            duration: const Duration(milliseconds: 400),
+                            reverseDuration: const Duration(milliseconds: 400),
+                            child: Cookies(),
+                          ),
+                        ); // Handle cookies policy
                       },
                     ),
                     const SizedBox(
