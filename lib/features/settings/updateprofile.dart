@@ -1,8 +1,15 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/authentication/utils/provider.dart';
+import 'package:empapp/features/settings/picturedit.dart';
 
-class Updateprofile extends StatelessWidget {
+class Updateprofile extends StatefulWidget {
   const Updateprofile({super.key});
 
+  @override
+  State<Updateprofile> createState() => _UpdateprofileState();
+}
+
+class _UpdateprofileState extends State<Updateprofile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +26,7 @@ class Updateprofile extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        childCurrent: const LogorSign(),
-                        duration: const Duration(milliseconds: 400),
-                        reverseDuration: const Duration(milliseconds: 400),
-                        child: const Profile(),
-                      ),
-                    ); // Handle back action
+                    Navigator.of(context).pop();
                   },
                   child: const Text(
                     'Back',
@@ -49,26 +48,51 @@ class Updateprofile extends StatelessWidget {
           Center(
             child: Stack(
               children: [
-                Image.asset(
-                  "assets/img/usericon.png",
-                  width: 120,
-                  height: 120,
+                Consumer<ProfileProvider>(
+                  builder: (context, profileProvider, child) {
+                    return CircleAvatar(
+                      radius: 64,
+                      backgroundImage: profileProvider.image != null
+                          ? MemoryImage(profileProvider.image!)
+                          : const AssetImage("assets/img/usericon.png")
+                              as ImageProvider,
+                    );
+                  },
                 ),
                 Positioned(
                   bottom: 0,
                   right: 0,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.edit,
-                      color: Color(0xFF0F0159),
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0F0159),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                )
+                ),
+                Positioned(
+                  bottom: 10,
+                  right: 6,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfilePhoto(),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.mode_edit_outline,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           const Padding(
@@ -78,10 +102,10 @@ class Updateprofile extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '   Full Name',
                 border: UnderlineInputBorder(),
               ),
@@ -95,10 +119,10 @@ class Updateprofile extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '   Active Email Address',
                 border: UnderlineInputBorder(),
               ),
@@ -112,16 +136,16 @@ class Updateprofile extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '   Phone Number',
                 border: UnderlineInputBorder(),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 250,
           ),
           Center(child: AppButton(onPressed: () {}, buttonText: 'Save'))

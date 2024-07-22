@@ -173,7 +173,7 @@ class SettingsPage extends StatelessWidget {
                             childCurrent: this,
                             duration: const Duration(milliseconds: 400),
                             reverseDuration: const Duration(milliseconds: 400),
-                            child: Cookies(),
+                            child: const Cookies(),
                           ),
                         ); // Handle cookies policy
                       },

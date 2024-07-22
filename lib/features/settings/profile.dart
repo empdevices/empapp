@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/authentication/utils/provider.dart';
 import 'package:empapp/features/settings/updateprofile.dart';
 
 class Profile extends StatelessWidget {
@@ -6,6 +7,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<ProfileProvider>(context);
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(
@@ -34,10 +36,12 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.only(left: 35.0),
             child: Row(
               children: [
-                Image.asset(
-                  "assets/img/usericon.png",
-                  width: 90,
-                  height: 90,
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: profileProvider.image != null
+                      ? MemoryImage(profileProvider.image!)
+                      : const AssetImage("assets/img/usericon.png")
+                          as ImageProvider,
                 ),
                 const SizedBox(
                   width: 20,
@@ -84,15 +88,11 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              Navigator.of(context).push(
-                                PageTransition(
-                                  type: PageTransitionType.leftToRightWithFade,
-                                  childCurrent: this,
-                                  duration: const Duration(milliseconds: 400),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 400),
-                                  child: Updateprofile(),
-                                ),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Updateprofile()),
                               ); // Handle notifications settings
                             },
                           ),

@@ -26,8 +26,8 @@ class Terms extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 30.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0),
             child: Row(
               children: [
                 Text(
@@ -37,7 +37,7 @@ class Terms extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50.0,
           ),
           Expanded(
@@ -50,8 +50,8 @@ class Terms extends StatelessWidget {
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30))),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 80.0, top: 40),
+            const Padding(
+              padding: EdgeInsets.only(left: 80.0, top: 40),
               child: Row(children: [
                 Text(
                   """Emission Pulse 
@@ -61,7 +61,7 @@ Conditions""",
                 ),
               ]),
             ),
-            Positioned(
+            const Positioned(
               top: 180,
               child: Column(
                 children: [
