@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/authentication/utils/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -70,6 +71,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<ProfileProvider>(context);
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       appBar: PreferredSize(
@@ -88,7 +90,9 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.white),
             ),
           ),
-          backgroundColor: Theme.of(context).colorScheme.primaryFixed, // Setting the background color
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primaryFixed, // Setting the background color
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -172,7 +176,6 @@ class _DashboardState extends State<Dashboard> {
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20)),
                         color: Theme.of(context).colorScheme.secondary,
-                        
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -201,27 +204,33 @@ class _DashboardState extends State<Dashboard> {
                                 ],
                               ),
                               GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Profile()),
-                                    );
-                                  },
-                                  child: userData['hasprofpic']
-                                      ? Image.network(
-                                          userData['userimage'],
-                                          width: 50,
-                                          height: 50,
-                                        )
-                                      : Image.asset(
-                                          defprofilegirl
-                                              ? "assets/img/userdefgirl.png"
-                                              : "assets/img/userdefboy.png",
-                                          width: 50,
-                                          height: 50,
-                                        )),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Profile()),
+                                  );
+                                },
+                                child: profileProvider.image != null
+                                    ? CircleAvatar(
+                                        radius: 25,
+                                        backgroundImage:
+                                            MemoryImage(profileProvider.image!),
+                                      )
+                                    : userData['hasprofpic']
+                                        ? CircleAvatar(
+                                            radius: 25,
+                                            backgroundImage: NetworkImage(
+                                                userData['userimage']),
+                                          )
+                                        : CircleAvatar(
+                                            radius: 25,
+                                            backgroundImage: AssetImage(
+                                                defprofilegirl
+                                                    ? "assets/img/userdefgirl.png"
+                                                    : "assets/img/userdefboy.png"),
+                                          ),
+                              ),
                             ],
                           ),
                           const SizedBox(
@@ -362,27 +371,31 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        backgroundColor: Theme.of(context).colorScheme.secondary, // Set your desired background color
-        selectedItemColor: Theme.of(context).colorScheme.onPrimary, // Set the color for the selected item
-        unselectedItemColor:
-            Theme.of(context).colorScheme.onPrimary, // Set the color for the unselected items
-        items:  <BottomNavigationBarItem>[
+        backgroundColor: Theme.of(context)
+            .colorScheme
+            .secondary, // Set your desired background color
+        selectedItemColor: Theme.of(context)
+            .colorScheme
+            .onPrimary, // Set the color for the selected item
+        unselectedItemColor: Theme.of(context)
+            .colorScheme
+            .onPrimary, // Set the color for the unselected items
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Iconify(
-              color :Theme.of(context).colorScheme.onPrimary,
-              MaterialSymbols.home_rounded),
+                color: Theme.of(context).colorScheme.onPrimary,
+                MaterialSymbols.home_rounded),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Iconify(
-              color :Theme.of(context).colorScheme.onPrimary,
-              MaterialSymbols.devices_other), // widget
+                color: Theme.of(context).colorScheme.onPrimary,
+                MaterialSymbols.devices_other), // widget
             label: 'Devices', // Remove label text
           ),
           BottomNavigationBarItem(
             icon: Iconify(
-              color :Theme.of(context).colorScheme.onPrimary,
-              Cil.bell),
+                color: Theme.of(context).colorScheme.onPrimary, Cil.bell),
             label: 'Notifications', // Remove label text
           ),
         ],

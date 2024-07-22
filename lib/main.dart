@@ -1,4 +1,5 @@
 import 'package:empapp/barrel.dart';
+import 'package:empapp/features/authentication/utils/provider.dart';
 import 'firebase_options.dart';
 
 late SharedPreferences logindata;
@@ -9,10 +10,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   await Firebase.initializeApp();
-  runApp(ChangeNotifierProvider(
-      create: (context) => ThemeProvider(), child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(
+            create: (context) =>
+                ProfileProvider()), // Add the ProfileProvider here
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
