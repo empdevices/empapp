@@ -3,9 +3,14 @@ import 'package:empapp/barrel.dart';
 class TipsBox extends StatefulWidget {
   final String heading;
   final String tip;
+  final String imagePath;
 
   const TipsBox(
-      {required this.tip, required this.heading, super.key});
+      {
+        required this.imagePath,
+        required this.tip, 
+        required this.heading, 
+        super.key});
 
   @override
   State<TipsBox> createState() => _TipsBoxState();
@@ -25,7 +30,7 @@ class _TipsBoxState extends State<TipsBox> {
             width: 130,
             height: 130,
             child: Image.asset(
-              "assets/img/tips1.png",
+              widget.imagePath,
             ),
           ),
           SizedBox(

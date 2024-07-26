@@ -1,6 +1,5 @@
 import 'package:empapp/barrel.dart';
 
-
 class AuthService {
   Future<void> signup({
     required String email,
@@ -11,7 +10,6 @@ class AuthService {
     required BuildContext context,
   }) async {
     try {
-
       if (email.isEmpty || password.isEmpty || name.isEmpty || phone.isEmpty) {
         Fluttertoast.showToast(
           msg: 'Please fill all the fields',
@@ -43,7 +41,8 @@ class AuthService {
       );
       if (!regExp.hasMatch(password)) {
         Fluttertoast.showToast(
-          msg: 'Password should contain at least one letter, one number, and one special character.',
+          msg:
+              'Password should contain at least one letter, one number, and one special character.',
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
@@ -68,9 +67,29 @@ class AuthService {
           'gender': gender.toLowerCase(),
           'phone': phone,
           'email': email,
+          'hasprofpic': false,
+          'userimage': '', 
+          'userems':{
+            'devices': {'empu24233d1': {
+              'name': 'Carbon EX 500',
+              'machine' : 'Benz C100'
+            }},
+            'overall': {
+              'total': 0,
+              'CO2': 0,
+              'NOx': 0,
+              'SO2': 0,
+            },
+             EmpAppDate().getDate(): {
+              'total': 0,
+              'CO2': 0,
+              'NOx': 0,
+              'SO2': 0,
+            },
+        }
         });
       }
-      
+
       Fluttertoast.showToast(
         msg: 'Account created successfully',
         toastLength: Toast.LENGTH_SHORT,
@@ -154,9 +173,9 @@ class AuthService {
       await Future.delayed(const Duration(seconds: 1));
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const LogorSign()),
-      (Route<dynamic> route) => false,
-    );
+        MaterialPageRoute(builder: (context) => const LogorSign()),
+        (Route<dynamic> route) => false,
+      );
     } catch (e) {
       rethrow;
     }

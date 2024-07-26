@@ -1,7 +1,8 @@
 import 'package:empapp/barrel.dart';
 
 class Details extends StatefulWidget {
-  const Details({super.key});
+  final Map<String, dynamic> empuser;
+  const Details({required this.empuser, super.key});
 
   @override
   State<Details> createState() => _DetailsState();
@@ -18,11 +19,11 @@ class _DetailsState extends State<Details> {
           iconTheme: const IconThemeData(
             color: Colors.white, // Set your desired color here
           ),
-          title: const Padding(
-            padding: EdgeInsets.all(40.0),
+          title:  Padding(
+            padding: const EdgeInsets.all(40.0),
             child: Text(
-              'Emissions - 30kg',
-              style: TextStyle(
+              'Emissions - ${widget.empuser['userems']['today']['total']}kg',
+              style: const TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w500,
                   color: Colors.white),
@@ -75,7 +76,7 @@ class _DetailsState extends State<Details> {
               ),
             ),
             Container(
-              decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
@@ -98,12 +99,12 @@ class _DetailsState extends State<Details> {
                     const SizedBox(
                       height: 30,
                     ),
-                    const Center(
+                     Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CirclerIndicator(timeframe: 'Today', weight: 30),
-                          Padding(
+                          CirclerIndicator(timeframe: 'Today', weight: widget.empuser['userems']['today']['total'].toDouble()),
+                          const Padding(
                             padding: EdgeInsets.only(top: 16.0),
                             child: Text(
                               'Good Job!',
@@ -144,22 +145,22 @@ class _DetailsState extends State<Details> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Column(
+                     Column(
                       children: [
                         GasBar(
                             gas: "CO₂",
-                            time: "Captured 2 minutes ago",
-                            weight: "14.6kg"),
-                        SizedBox(height: 20),
-                        GasBar(
+                            time: "Captured 1 minute ago",
+                            weight: '${widget.empuser['userems']['today']['CO2']}kg'),
+                        const SizedBox(height: 20),
+                         GasBar(
                             gas: "NOx",
-                            time: "Captured 2 minutes ago",
-                            weight: "7.8kg"),
-                        SizedBox(height: 20),
-                        GasBar(
+                            time: "Captured 4 days ago",
+                            weight: '${widget.empuser['userems']['today']['NOx']}kg'),
+                        const SizedBox(height: 20),
+                         GasBar(
                             gas: "SO₂",
-                            time: "Captured 2 minutes ago",
-                            weight: "6.2kg"),
+                            time: "Captured 35 days ago",
+                            weight: '${widget.empuser['userems']['today']['SO2']}kg'),
                       ],
                     ),
                     Padding(

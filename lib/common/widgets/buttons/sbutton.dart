@@ -2,10 +2,14 @@ import 'package:empapp/barrel.dart';
 
 class SmallAppButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final Map<String, dynamic> empuser;
   final String buttonText;
 
   const SmallAppButton(
-      {required this.onPressed, required this.buttonText, super.key});
+      {required this.empuser,
+      required this.onPressed,
+      required this.buttonText,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class SmallAppButton extends StatelessWidget {
             childCurrent: this,
             duration: const Duration(milliseconds: 1000),
             reverseDuration: const Duration(milliseconds: 1000),
-            child: const Details(),
+            child: Details(empuser: empuser),
           ),
         );
       },
@@ -66,7 +70,7 @@ class _SmallAppButtonLightState extends State<SmallAppButtonLight> {
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left:12.0, right: 6),
+        padding: const EdgeInsets.only(left: 12.0, right: 6),
         child: DropdownButton<String>(
           value: _dropdownValue,
           borderRadius: BorderRadius.circular(10.0),

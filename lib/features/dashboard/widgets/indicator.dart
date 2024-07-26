@@ -1,6 +1,7 @@
 import 'package:empapp/barrel.dart';
 
 class CirclerIndicator extends StatefulWidget {
+  
   final String timeframe;
   final double weight;
 

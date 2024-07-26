@@ -272,32 +272,33 @@ class _DashboardState extends State<Dashboard> {
                           Padding(
                             padding: const EdgeInsets.only(right: 40.0),
                             child: SmallAppButton(
+                                empuser:  userData,
                                 onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Details()),
+                                        builder: (context) => Details(empuser: userData,)),
                                   );
                                 },
                                 buttonText: "View Details"),
                           ),
-                          const Column(
+                          Column(
                             children: [
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               GasBar(
                                   gas: "CO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: "14.6kg"),
-                              SizedBox(height: 20),
+                                  weight: userData['userems']['today']['CO2'].toString()),
+                              const SizedBox(height: 20),
                               GasBar(
                                   gas: "NOx",
                                   time: "captured 2 minutes ago",
-                                  weight: "7.8kg"),
-                              SizedBox(height: 20),
+                                  weight: userData['userems']['today']['NOx'].toString()),
+                              const SizedBox(height: 20),
                               GasBar(
                                   gas: "SO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: "6.2kg"),
+                                  weight: userData['userems']['today']['SO2'].toString()),
                             ],
                           ),
                           const SizedBox(height: 20),
@@ -325,10 +326,12 @@ class _DashboardState extends State<Dashboard> {
                           ),
                           const SizedBox(height: 20),
                           const TipsBox(
+                              imagePath: "assets/img/tips1.png",
                               heading: "Green Route",
                               tip:
                                   "Leave your car behind and take a greener route, walking, biking or public transport. Reduce emissions, save money, and stay fit on the go."),
                           const TipsBox(
+                              imagePath: "assets/img/tips2.png",
                               heading: "Reduce, Reuse, Recycle",
                               tip:
                                   "A simple mantra that encourages us to be mindful of our consumption habits and minimize waste by finding new uses for existing items"),

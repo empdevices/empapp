@@ -12,9 +12,6 @@ class _BarChatState extends State<BarChat> {
   // Create a DateTime object
   late DateTime today = DateTime.now();
 
-  // Format the DateTime object
-  late String formattedDate = DateFormat('d MMMM yyyy').format(today);
-
   // Add suffix to the day
   String daySuffix(int day) {
     if (day >= 11 && day <= 13) {
@@ -46,7 +43,7 @@ class _BarChatState extends State<BarChat> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  finalFormattedDate,
+                  EmpAppDate().getDate(),
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14.0,
