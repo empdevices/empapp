@@ -47,7 +47,7 @@ class _ScanState extends State<Scan> {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Back',
+                        'Cancel',
                         style: TextStyle(color: appGreen, fontSize: 16),
                       ),
                     ),
@@ -92,15 +92,12 @@ class _ScanState extends State<Scan> {
               Center(
                 child: AppButton(
                   onPressed: () {
-                    dispose();
                     controller?.pauseCamera();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const LoadScreen()),
-                    ).then((_) {
-                      controller?.resumeCamera();
-                    });
+                    );
                   },
                   buttonText: 'OK',
                 ),

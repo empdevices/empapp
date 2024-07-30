@@ -76,9 +76,7 @@ class AddDeviceHome extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // an image here
-                        Image.asset(
-                          'assets/icons/scan.png',
-                        ),
+                        const Icon(Icons.qr_code_scanner_outlined),
                         const SizedBox(width: 10),
                         SizedBox(
                           width: 250,
@@ -88,7 +86,7 @@ class AddDeviceHome extends StatelessWidget {
                               const Text(
                                 'Scan Code',
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                                    fontSize: 16),
                               ),
                               Text(
                                 'Look for the code on the device, or its packaging and place the code infront of your phone\'s camera to  scan it.',
@@ -101,10 +99,31 @@ class AddDeviceHome extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Serial Number',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // an image here
+                        const Icon(Icons.numbers),
+                        const SizedBox(width: 10),
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Serial Number',
+                                style: TextStyle(
+                                    fontSize: 16),
+                              ),
+                              Text(
+                                'Alternatively, you can enter the serial number found on the device.',
+                                style: TextStyle(color: textGrey, fontSize: 12),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   const Padding(
                     padding: EdgeInsets.only(left: 20.0, right: 20.0),
                     child: TextField(
@@ -117,7 +136,7 @@ class AddDeviceHome extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 200),
+                  addVertSpace(100),
                   Center(
                     child: AppButton(
                       onPressed: () {

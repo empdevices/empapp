@@ -189,6 +189,9 @@ class _DeviceState extends State<Device> {
                         onTap: () {
                           showEmpPopup(
                               context: context,
+                              onPressed: (){
+                                Navigator.pop(context);
+                              },
                               message: 'Device Server not\nactive.',
                               icon: Icons.dangerous,
                               iconColor: Colors.red,
@@ -208,6 +211,9 @@ class _DeviceState extends State<Device> {
                         onTap: () {
                           showEmpPopup(
                               context: context,
+                              onPressed: (){
+                                Navigator.pop(context);
+                              },
                               message: 'Device Server not\nactive.',
                               icon: Icons.dangerous,
                               iconColor: Colors.red,

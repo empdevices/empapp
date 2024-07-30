@@ -22,17 +22,17 @@ class HostMachine extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const Scan(),
+                        builder: (context) => const Dashboard(),
                       ),
                     );
                   },
                   child: const Text(
-                    'Back',
+                    'Cancel',
                     style: TextStyle(color: Colors.green, fontSize: 16),
                   ),
                 ),
               ),
-              const Spacer(),
+              addHorSpace(10),
               const Text(
                 '  Host Machine',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),

@@ -104,7 +104,8 @@ class _DashboardState extends State<Dashboard> {
                 onPressed: () {
                   // navigate to settings page
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SettingsPage()));
+                      builder: (context) => const SettingsPage())
+                      );
                 },
               ),
             ),

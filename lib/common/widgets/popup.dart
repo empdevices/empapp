@@ -1,6 +1,7 @@
 import 'package:empapp/barrel.dart';
 
 class EmpPopup extends StatelessWidget {
+  final VoidCallback onPressed;
   final String message;
   final IconData icon;
   final Color iconColor;
@@ -8,6 +9,7 @@ class EmpPopup extends StatelessWidget {
 
   const EmpPopup({
     super.key,
+    required this.onPressed,
     required this.message,
     required this.icon,
     required this.iconColor,
@@ -33,9 +35,7 @@ class EmpPopup extends StatelessWidget {
           const SizedBox(height: 20),
           Center(
             child: AppButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
+              onPressed: onPressed,
               buttonText: buttontext,
             ),
           ),
@@ -47,6 +47,7 @@ class EmpPopup extends StatelessWidget {
 
 void showEmpPopup({
   required BuildContext context,
+  required VoidCallback onPressed,
   required String message,
   required IconData icon,
   required Color iconColor,
@@ -57,6 +58,7 @@ void showEmpPopup({
     barrierDismissible: false,
     builder: (BuildContext context) {
       return EmpPopup(
+        onPressed: onPressed,
         message: message,
         icon: icon,
         iconColor: iconColor,

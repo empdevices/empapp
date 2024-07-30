@@ -23,11 +23,18 @@ class _LoadScreenState extends State<LoadScreen> {
         if (progress >= 1.0) {
           progress = 1.0;
           timer.cancel();
-          showEmpPopup(context: context, 
-          message: 'Device Server not\nactive.', 
-          icon: Icons.dangerous, 
-          iconColor: Colors.red, 
-          buttontext: 'Continue');
+          showEmpPopup(
+              context: context,
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const HostMachine()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              message: 'Device Server not\nactive.',
+              icon: Icons.dangerous,
+              iconColor: Colors.red,
+              buttontext: 'Continue');
         }
       });
     });
@@ -42,31 +49,14 @@ class _LoadScreenState extends State<LoadScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => const Scan(),
-                        ),
-                      ); // Handle back action
-                    },
-                    child: const Text(
-                      'Back',
-                      style: TextStyle(color: Colors.green, fontSize: 16),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Center(
+                child: Text(
+                      'Setting Up',
+                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-                const Spacer(),
-                const Text(
-                  '    Setup',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-                const Spacer(flex: 2),
-              ],
+              ),
             ),
             const SizedBox(height: 280),
             Text(
@@ -77,7 +67,8 @@ class _LoadScreenState extends State<LoadScreen> {
             LinearProgressIndicator(
               value: progress,
               backgroundColor: Colors.grey[300],
-              valueColor: const AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 112, 224, 0)),
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                  Color.fromARGB(255, 112, 224, 0)),
             ),
             const SizedBox(height: 20),
             Image.asset('assets/icons/nfc.png'),
