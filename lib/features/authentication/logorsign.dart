@@ -5,6 +5,9 @@ class LogorSign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double fontSize = screenWidth * 0.045; // Adjust this factor as needed
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
@@ -62,12 +65,12 @@ class LogorSign extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 200,
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.6,
                 ),
                 Container(
                   height: 200.0,
-                  width: 340,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
                     borderRadius: BorderRadius.circular(35.0),
@@ -76,59 +79,105 @@ class LogorSign extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 100,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      builder: (context) => const Login(),
-                                    ),
-                                  );
-                                },
-                                child:  Text(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                    builder: (context) => const Login(),
+                                  ),
+                                );
+                              },
+                              child: Center(
+                                child: Text(
                                   'Log In',
                                   style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                    fontSize: 22,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Image.asset(
-                                "assets/img/line.png",
-                                fit: BoxFit.cover,
-                              ),
-                            SizedBox(
-                              width: 100,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => const Signup(),
-                                    ),
-                                  );
-                                },
-                                child: Text(
-                                  'Sign Up',
-                                  style: TextStyle(
                                     color: Theme.of(context).colorScheme.primary,
-                                    fontSize: 22,
+                                    fontSize: fontSize,
                                   ),
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      const SizedBox(
-                          width: 280,
-                          child: Text(
-                              "We guarantee high performance from our devices and software. However, in rare cases, there may be false readings or interpretations of emissions data. Please report such cases to us.",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 10)),
-                        ),
+                          ),
+                          Image.asset(
+                            "assets/img/line.png",
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const Signup(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontSize: fontSize,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Wrap(
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const Terms(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                            'Terms & Conditions',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 10,
+                            ),
+                          )),
+                          addHorSpace(10),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const Privacy(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                            'Privacy Policy',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 10,
+                            ),
+                          )),
+                          addHorSpace(10),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const HelpAndAssistance(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                            'Help & Support',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 10,
+                            ),
+                          ))
+                        ],
+                      )
                     ],
                   ),
                 ),

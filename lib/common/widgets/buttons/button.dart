@@ -11,7 +11,7 @@ class AppButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         backgroundColor: const Color(0xFF0F0159),
-        minimumSize: const Size(270, 60),
+        minimumSize: const Size(270, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),

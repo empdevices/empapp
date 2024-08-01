@@ -125,7 +125,7 @@ class Profile extends StatelessWidget {
                           ListTile(
                             leading: const Icon(Icons.star_border),
                             title: const Text(
-                              'Archievments',
+                              'Achievements',
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {

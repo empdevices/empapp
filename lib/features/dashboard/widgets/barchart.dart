@@ -195,7 +195,7 @@ class _BarState extends State<Bar> {
         children: [
           Container(
             height: widget.height,
-            width: 12,
+            width: 15,
             decoration: BoxDecoration(
               color: widget.isSelected ? Colors.purple : widget.barColor,
               borderRadius: BorderRadius.circular(10),

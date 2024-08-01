@@ -48,7 +48,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                          Text(
-                          'CO2 : ${widget.statsEms['userems']['wed']['CO2']}.0kg',
+                          'CO2 : ${widget.statsEms['CO2']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,
@@ -69,7 +69,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                         Text(
-                          'NOx : ${widget.statsEms['userems']['wed']['NOx']}.0kg',
+                          'NOx : ${widget.statsEms['NOx']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,
@@ -90,7 +90,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                         Text(
-                          'SO2 : ${widget.statsEms['userems']['wed']['SO2']}.0kg',
+                          'SO2 : ${widget.statsEms['SO2']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,

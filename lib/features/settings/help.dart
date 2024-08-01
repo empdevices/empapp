@@ -49,11 +49,11 @@ class HelpAndAssistance extends StatelessWidget {
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16.0),
+              child: const SingleChildScrollView(
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Center(
                       child: Text(
                         "Help & Assistance",

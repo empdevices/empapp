@@ -89,3 +89,8 @@ export 'package:empapp/common/appdate.dart';
 export 'package:empapp/features/settings/help.dart';
 
 export 'package:empapp/features/dashboard/widgets/sliderprov.dart';
+
+export 'package:empapp/features/settings/utils/editfrb.dart';
+
+export 'package:empapp/features/settings/privacy.dart';
+export 'package:empapp/features/settings/terms.dart';

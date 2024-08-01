@@ -69,7 +69,7 @@ class EmpPieChart extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                '${statEms['userems']['wed']['total'].toDouble()}',
+                '${statEms['total'].toDouble()}',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 16,

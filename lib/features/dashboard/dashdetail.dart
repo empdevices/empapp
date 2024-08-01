@@ -30,7 +30,7 @@ class DetailsState extends State<Details> {
         emotionColor = Colors.green;
         emotionLabel = 'Good';
         emotiontext =
-            'You have done a great job with keeping your footprint lowGood';
+            'You have done a great job with keeping your footprint low';
         emotionImg = 'assets/icons/good.png';
       } else if (widget.empuser['userems'][appday]['total'] < 50) {
         emotionColor = Colors.yellow;
@@ -191,19 +191,19 @@ class DetailsState extends State<Details> {
                             gas: "CO₂",
                             time: "Captured 1 minute ago",
                             weight:
-                                '${widget.empuser['userems']['wed']['CO2']}.0kg'),
+                                '${currEmission?['CO2']}.0kg'),
                         const SizedBox(height: 20),
                         GasBar(
                             gas: "NOx",
                             time: "Captured 4 days ago",
                             weight:
-                                '${widget.empuser['userems']['wed']['NOx']}.0kg'),
+                                '${currEmission?['NOx']}.0kg'),
                         const SizedBox(height: 20),
                         GasBar(
                             gas: "SO₂",
                             time: "Captured 35 days ago",
                             weight:
-                                '${widget.empuser['userems']['wed']['SO2']}.0kg'),
+                                '${currEmission?['SO2']}.0kg'),
                       ],
                     ),
                     Padding(
@@ -228,7 +228,7 @@ class DetailsState extends State<Details> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Statistics(statsEms: widget.empuser),
+                    Statistics(statsEms: currEmission!),
                     const SizedBox(
                       height: 50,
                     ),

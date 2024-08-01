@@ -1,15 +1,14 @@
 import 'dart:typed_data';
 import 'package:empapp/features/authentication/utils/imagepicker.dart';
 import 'package:empapp/features/authentication/utils/provider.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
+import 'package:empapp/barrel.dart';
 
 class ProfilePhoto extends StatefulWidget {
   const ProfilePhoto({super.key});
 
   @override
-  _ProfilePhotoState createState() => _ProfilePhotoState();
+  State<ProfilePhoto> createState() => _ProfilePhotoState();
 }
 
 class _ProfilePhotoState extends State<ProfilePhoto> {
@@ -29,56 +28,24 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showPicker(context);
-        },
-        child: const Icon(
-          Icons.add_a_photo,
-          color: Colors.white,
-        ),
-      ),
       body: Center(
-        child: Hero(
-          tag: 'Profile',
-          child: CircleAvatar(
-            radius: 50,
-            backgroundImage: profileProvider.image != null
-                ? MemoryImage(profileProvider.image!)
-                : const AssetImage("assets/img/usericon.png") as ImageProvider,
+        child: 
+        // Full profile image
+        Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: profileProvider.image != null
+                  ? MemoryImage(profileProvider.image!)
+                  : const AssetImage('assets/img/userdefboy.png') as ImageProvider,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
     );
   }
 
-  void _showPicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext bc) {
-        return SafeArea(
-          child: Wrap(
-            children: [
-              ListTile(
-                leading: const Icon(Icons.photo_library),
-                title: const Text('Photo Library'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  selectImage(ImageSource.gallery);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.photo_camera),
-                title: const Text('Camera'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  selectImage(ImageSource.camera);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 }
