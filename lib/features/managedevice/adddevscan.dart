@@ -89,19 +89,6 @@ class _ScanState extends State<Scan> {
                 ),
               ),
               const SizedBox(height: 20),
-              Center(
-                child: AppButton(
-                  onPressed: () {
-                    controller?.pauseCamera();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoadScreen()),
-                    );
-                  },
-                  buttonText: 'OK',
-                ),
-              ),
             ],
           ),
         ),

@@ -43,7 +43,16 @@ class DeviceBoxState extends State<DeviceBox> {
                       value: _isSwitched,
                       onChanged: (value) {
                         setState(() {
-                          _isSwitched = value;
+                          showEmpPopup(
+                            context: context,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            message: 'Action not\nallowed.',
+                            icon: Icons.dangerous,
+                            iconColor: Colors.red,
+                            buttontext: 'Continue');
+                          // _isSwitched = value;
                         });
                       },
                     ),

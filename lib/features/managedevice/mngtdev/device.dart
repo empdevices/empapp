@@ -192,7 +192,7 @@ class _DeviceState extends State<Device> {
                               onPressed: (){
                                 Navigator.pop(context);
                               },
-                              message: 'Device Server not\nactive.',
+                              message: 'Action not\nallowed.',
                               icon: Icons.dangerous,
                               iconColor: Colors.red,
                               buttontext: 'Continue');
@@ -214,7 +214,7 @@ class _DeviceState extends State<Device> {
                               onPressed: (){
                                 Navigator.pop(context);
                               },
-                              message: 'Device Server not\nactive.',
+                              message: 'Action not\nallowed.',
                               icon: Icons.dangerous,
                               iconColor: Colors.red,
                               buttontext: 'Continue');

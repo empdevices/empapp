@@ -8,7 +8,7 @@ class DeviceBoxSmall extends StatefulWidget {
 }
 
 class DeviceBoxSmallState extends State<DeviceBoxSmall> {
-  bool _isSwitched = false;
+  bool _isSwitched = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -49,7 +49,16 @@ class DeviceBoxSmallState extends State<DeviceBoxSmall> {
                           value: _isSwitched,
                           onChanged: (value) {
                             setState(() {
-                              _isSwitched = value;
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Action not\nallowed.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
+                              // _isSwitched = value;
                             });
                           },
                         ),
