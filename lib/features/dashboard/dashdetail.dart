@@ -2,7 +2,10 @@ import 'package:empapp/barrel.dart';
 
 class Details extends StatefulWidget {
   final Map<String, dynamic> empuser;
-  const Details({required this.empuser, super.key});
+  final String daysPerformance; 
+  const Details({
+    required this.daysPerformance,
+    required this.empuser, super.key});
 
   @override
   State<Details> createState() => DetailsState();
@@ -144,11 +147,11 @@ class DetailsState extends State<Details> {
                           CirclerIndicator(
                               timeframe: 'kg/day',
                               weight: currEmission?['total'].toDouble()),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 16.0),
+                           Padding(
+                            padding: const EdgeInsets.only(top: 16.0),
                             child: Text(
-                              'Good Job!',
-                              style: TextStyle(
+                              widget.daysPerformance,
+                              style: const TextStyle(
                                   fontWeight: FontWeight.normal,
                                   fontSize: 20.0),
                             ),
@@ -159,7 +162,7 @@ class DetailsState extends State<Details> {
                     const SizedBox(
                       height: 20,
                     ),
-                    BarChat(inFunction: reFetchEmission, currentday: appday),
+                    BarChat(inFunction: reFetchEmission, currentday: appday , barchartEms: widget.empuser['userems']),
                     const SizedBox(
                       height: 20,
                     ),
@@ -242,71 +245,3 @@ class DetailsState extends State<Details> {
     );
   }
 }
-
-// class Bar extends StatefulWidget {
-//   final String date;
-//   final double height;
-//   final String label;
-//    final Function(String) onTap;
-
-//   const Bar({
-//     required this.onTap, // Add this line
-//     required this.date,
-//     required this.height,
-//     required this.label,
-//     super.key,
-//   });
-
-//   @override
-//   State<Bar> createState() => _BarState();
-// }
-
-// class _BarState extends State<Bar> {
-//   Color barColor = mainCol;
-
-//   void changeColor() {
-//     setState(() {
-//       // Toggle between two colors for demonstration purposes
-//       barColor = (barColor == Theme.of(context).colorScheme.primary)
-//           ? Colors.purple // Color on tap
-//           : Theme.of(context).colorScheme.primary; // Original color
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: () {
-//         widget.onTap(widget.label.toLowerCase());
-//         changeColor();
-//       },
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.end,
-//         children: [
-//           Container(
-//             height: widget.height,
-//             width: 12,
-//             decoration: BoxDecoration(
-//               color: barColor, // Use the dynamic color for the bar
-//               borderRadius: BorderRadius.circular(10),
-//               border: Border.all(
-//                 color: barColor, // Set the border color
-//                 width: 2.0, // Set the border width
-//               ),
-//             ),
-//           ),
-//           const SizedBox(
-//             height: 5,
-//           ),
-//           Text(
-//             widget.label,
-//             style: const TextStyle(
-//               fontSize: 10,
-//               fontWeight: FontWeight.w400,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

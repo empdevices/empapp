@@ -2,31 +2,28 @@ import 'package:empapp/barrel.dart';
 import 'package:intl/intl.dart';
 
 class BarChat extends StatefulWidget {
+  final Map<String, dynamic> barchartEms;
+
   final String currentday;
   final Function(String) inFunction;
   const BarChat(
-      {required this.inFunction, required this.currentday, super.key});
+      {required this.barchartEms,
+      required this.inFunction,
+      required this.currentday,
+      super.key});
 
   @override
   State<BarChat> createState() => _BarChatState();
 }
 
 class _BarChatState extends State<BarChat> {
-
   String? selectedLabel;
   late DateTime today = DateTime.now();
-
-  void refreshChart() {
-    setState(() {
-      print("i am here");
-    });
-  }
 
   void onBarTap(String label) {
     setState(() {
       selectedLabel = label;
     });
-    // Call the function passed from the parent
     widget.inFunction(label);
   }
 
@@ -105,50 +102,43 @@ class _BarChatState extends State<BarChat> {
                             isSelected: widget.currentday == 'mon',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 160,
+                            height: (widget.barchartEms['mon']['total'] * 2).toDouble(),
                             label: 'Mon'),
                         Bar(
                             isSelected: widget.currentday == 'tue',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 80,
+                            height: (widget.barchartEms['tue']['total'] * 2).toDouble(),
                             label: 'Tue'),
                         Bar(
                             isSelected: widget.currentday == 'wed',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 160,
+                            height: (widget.barchartEms['wed']['total'] * 2).toDouble(),
                             label: 'Wed'),
                         Bar(
                             isSelected: widget.currentday == 'thu',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 200,
+                            height: (widget.barchartEms['thu']['total'] * 2).toDouble(),
                             label: 'Thu'),
                         Bar(
                             isSelected: widget.currentday == 'fri',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 110,
+                            height: (widget.barchartEms['fri']['total'] * 2).toDouble(),
                             label: 'Fri'),
                         Bar(
                             isSelected: widget.currentday == 'sat',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 150,
+                            height: (widget.barchartEms['sat']['total'] * 2).toDouble(),
                             label: 'Sat'),
                         Bar(
                             isSelected: widget.currentday == 'sun',
                             barColor: mainCol,
                             onTap: widget.inFunction,
-                            date: EmpAppDate().getDate(),
-                            height: 180,
+                            height: (widget.barchartEms['sun']['total'] * 2).toDouble(),
                             label: 'Sun'),
                       ]),
                 ),
@@ -161,8 +151,8 @@ class _BarChatState extends State<BarChat> {
         ));
   }
 }
+
 class Bar extends StatefulWidget {
-  final String date;
   final double height;
   final String label;
   final Color barColor;
@@ -172,7 +162,6 @@ class Bar extends StatefulWidget {
   const Bar({
     required this.barColor,
     required this.onTap,
-    required this.date,
     required this.height,
     required this.label,
     required this.isSelected, // Initialize the new property

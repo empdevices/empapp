@@ -108,9 +108,9 @@ class _StatisticsState extends State<Statistics> {
                           domain1: "SO2",
                           domain2: "CO₂",
                           domain3: "NOX",
-                          measure1: 6,
-                          measure2: 9,
-                          measure3: 5),
+                          measure1: widget.statsEms['NOx'].toDouble(),
+                          measure2: widget.statsEms['CO2'].toDouble(),
+                          measure3: widget.statsEms['SO2'].toDouble()),
                 )
               ],
             )));

@@ -162,6 +162,16 @@ class _DashboardState extends State<Dashboard> {
               defprofileboy = false;
               defprofilegirl = true;
             }
+            
+            final String todaysPerformance;
+
+            if (userData['userems']['thu']['total'] < 25) {
+              todaysPerformance = 'Good Job!';
+            } else if (userData['userems']['thu']['total'] < 50) {
+              todaysPerformance = 'Fair Job!';
+            } else {
+              todaysPerformance = 'Needs Improvement!';
+            }
 
             return SingleChildScrollView(
               child: Column(
@@ -256,12 +266,12 @@ class _DashboardState extends State<Dashboard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CirclerIndicator(
-                                    timeframe: 'Today', weight: userData['userems']['wed']['total'].toDouble()),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 16.0),
+                                    timeframe: 'Today', weight: userData['userems']['thu']['total'].toDouble()),
+                                 Padding(
+                                  padding: const EdgeInsets.only(top: 16.0),
                                   child: Text(
-                                    'Good Job!',
-                                    style: TextStyle(
+                                    todaysPerformance,
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.normal,
                                         fontSize: 20.0),
                                   ),
@@ -278,7 +288,7 @@ class _DashboardState extends State<Dashboard> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Details(empuser: userData,)),
+                                        builder: (context) => Details(empuser: userData, daysPerformance: todaysPerformance)),
                                   );
                                 },
                                 buttonText: "View Details"),
@@ -289,17 +299,17 @@ class _DashboardState extends State<Dashboard> {
                               GasBar(
                                   gas: "CO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['wed']['CO2'].toString()}.0'),
+                                  weight: '${userData['userems']['thu']['CO2'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "NOx",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['wed']['NOx'].toString()}.0'),
+                                  weight: '${userData['userems']['thu']['NOx'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "SO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['wed']['SO2'].toString()}.0'),
+                                  weight: '${userData['userems']['thu']['SO2'].toString()}.0'),
                             ],
                           ),
                           const SizedBox(height: 20),
