@@ -71,8 +71,8 @@ class _DevicesHomeState extends State<DevicesHome> {
                   color: Theme.of(context).colorScheme.secondary,
                 ),
                 child: Wrap(alignment: WrapAlignment.center, children: [
-                  const DeviceBoxSmall(),
-                  const DeviceBoxSmall(),
+                  // const DeviceBoxSmall(),
+                  // const DeviceBoxSmall(),
                   const DeviceBoxSmall(),
                   Padding(
                     padding: const EdgeInsets.all(5.0),

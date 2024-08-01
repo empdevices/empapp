@@ -99,7 +99,15 @@ class SettingsPage extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle app rating
+                        showEmpPopup(
+                            context: context,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            message: 'Feature not\nactive.',
+                            icon: Icons.dangerous,
+                            iconColor: Colors.red,
+                            buttontext: 'Continue');
                       },
                     ),
                     const SizedBox(
@@ -112,7 +120,15 @@ class SettingsPage extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle app sharing
+                        showEmpPopup(
+                            context: context,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            message: 'Feature not\nactive.',
+                            icon: Icons.dangerous,
+                            iconColor: Colors.red,
+                            buttontext: 'Continue');
                       },
                     ),
                     const SizedBox(
@@ -182,13 +198,21 @@ class SettingsPage extends StatelessWidget {
                       height: 15,
                     ),
                     ListTile(
-                      leading: const Icon(Icons.mail_outline),
+                      leading: const Iconify(Carbon.help_desk),
                       title: const Text(
-                        'Contact',
+                        'Help and Assistance',
                         style: TextStyle(fontWeight: FontWeight.normal),
                       ),
                       onTap: () {
-                        // Handle contact
+                        Navigator.of(context).push(
+                          PageTransition(
+                            type: PageTransitionType.leftToRightWithFade,
+                            childCurrent: this,
+                            duration: const Duration(milliseconds: 400),
+                            reverseDuration: const Duration(milliseconds: 400),
+                            child: const HelpAndAssistance(),
+                          ),
+                        );
                       },
                     ),
                   ],

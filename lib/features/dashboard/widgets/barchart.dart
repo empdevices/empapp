@@ -2,15 +2,33 @@ import 'package:empapp/barrel.dart';
 import 'package:intl/intl.dart';
 
 class BarChat extends StatefulWidget {
-  const BarChat({super.key});
+  final String currentday;
+  final Function(String) inFunction;
+  const BarChat(
+      {required this.inFunction, required this.currentday, super.key});
 
   @override
   State<BarChat> createState() => _BarChatState();
 }
 
 class _BarChatState extends State<BarChat> {
-  // Create a DateTime object
+
+  String? selectedLabel;
   late DateTime today = DateTime.now();
+
+  void refreshChart() {
+    setState(() {
+      print("i am here");
+    });
+  }
+
+  void onBarTap(String label) {
+    setState(() {
+      selectedLabel = label;
+    });
+    // Call the function passed from the parent
+    widget.inFunction(label);
+  }
 
   // Add suffix to the day
   String daySuffix(int day) {
@@ -43,10 +61,22 @@ class _BarChatState extends State<BarChat> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  EmpAppDate().getDate(),
+                  widget.currentday == 'mon'
+                      ? 'Monday'
+                      : widget.currentday == 'tue'
+                          ? 'Tuesday'
+                          : widget.currentday == 'wed'
+                              ? 'Wednesday'
+                              : widget.currentday == 'thu'
+                                  ? 'Thursday'
+                                  : widget.currentday == 'fri'
+                                      ? 'Friday'
+                                      : widget.currentday == 'sat'
+                                          ? 'Saturday'
+                                          : 'Sunday',
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
-                    fontSize: 14.0,
+                    fontSize: 20.0,
                   ),
                 ),
                 const SizedBox(
@@ -72,28 +102,52 @@ class _BarChatState extends State<BarChat> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'mon',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 160,
                             label: 'Mon'),
-                        Bar(date: finalFormattedDate, height: 80, label: 'Tue'),
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'tue',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
+                            height: 80,
+                            label: 'Tue'),
+                        Bar(
+                            isSelected: widget.currentday == 'wed',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 160,
                             label: 'Wed'),
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'thu',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 200,
-                            label: 'Thr'),
+                            label: 'Thu'),
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'fri',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 110,
                             label: 'Fri'),
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'sat',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 150,
                             label: 'Sat'),
                         Bar(
-                            date: finalFormattedDate,
+                            isSelected: widget.currentday == 'sun',
+                            barColor: mainCol,
+                            onTap: widget.inFunction,
+                            date: EmpAppDate().getDate(),
                             height: 180,
                             label: 'Sun'),
                       ]),
@@ -107,163 +161,55 @@ class _BarChatState extends State<BarChat> {
         ));
   }
 }
-
-class Bar extends StatelessWidget {
+class Bar extends StatefulWidget {
   final String date;
   final double height;
   final String label;
+  final Color barColor;
+  final Function(String) onTap;
+  final bool isSelected; // New property to indicate if the bar is selected
 
   const Bar({
+    required this.barColor,
+    required this.onTap,
     required this.date,
     required this.height,
     required this.label,
+    required this.isSelected, // Initialize the new property
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    void showBarPopup() {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            backgroundColor: Theme.of(context).colorScheme.secondary,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            ),
-            content: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [EmpExitBtn()],
-                  ),
-                  const SizedBox(height: 20),
-                  const CirclerIndicator(timeframe: 'Mon', weight: 30),
-                  const SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        date,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      const Text(
-                        "645KM Covered",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: mainCol,
-                            size: 10,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "CO₂ : 14.5 g/km",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: Colors.red,
-                            size: 10,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "NOX : 7.80 g/km",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: Color.fromARGB(255, 214, 211, 0),
-                            size: 10,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "SO2 : 6.20 g/km",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 250,
-                        height: 150,
-                        child: EmpPieChart(
-                            domain1: "SO2",
-                            domain2: "CO₂",
-                            domain3: "NOX",
-                            measure1: 4,
-                            measure2: 9,
-                            measure3: 6),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                ],
-              ),
-            ),
-          );
-        },
-      );
-    }
+  State<Bar> createState() => _BarState();
+}
 
+class _BarState extends State<Bar> {
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: showBarPopup,
+      onTap: () {
+        widget.onTap(widget.label.toLowerCase());
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-              height: height,
-              width: 12,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: BorderRadius.circular(10),
+            height: widget.height,
+            width: 12,
+            decoration: BoxDecoration(
+              color: widget.isSelected ? Colors.purple : widget.barColor,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: widget.isSelected ? Colors.purple : widget.barColor,
+                width: 2.0,
               ),
-              child: null),
+            ),
+          ),
           const SizedBox(
             height: 5,
           ),
           Text(
-            label,
+            widget.label,
             style: const TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w400,

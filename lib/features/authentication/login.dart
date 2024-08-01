@@ -97,15 +97,6 @@ class _LoginState extends State<Login> {
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    PageTransition(
-                      type: PageTransitionType.fade,
-                      childCurrent: const RecoverPass(),
-                      duration: const Duration(milliseconds: 400),
-                      reverseDuration: const Duration(milliseconds: 400),
-                      child: const RecoverPass(),
-                    ),
-                  ); // Handle back action
                 },
                 child: const Text(
                   'Forgot Password ?',
@@ -127,36 +118,36 @@ class _LoginState extends State<Login> {
               ),
             ),
             const Spacer(),
-            const Center(
-              child: Text(
-                '-sign in with-',
-                style: TextStyle(fontSize: 14),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: Image.asset('assets/img/google_icon.png'),
-                  onPressed: () {
-                    // Handle Google sign-in
-                  },
-                ),
-                IconButton(
-                  icon: Image.asset('assets/img/facebook_icon.png'),
-                  onPressed: () {
-                    // Handle Facebook sign-in
-                  },
-                ),
-                IconButton(
-                  icon: Image.asset('assets/img/X_icon.png'),
-                  onPressed: () {
-                    // Handle Twitter sign-in
-                  },
-                ),
-              ],
-            ),
+            // const Center(
+            //   child: Text(
+            //     '-sign in with-',
+            //     style: TextStyle(fontSize: 14),
+            //   ),
+            // ),
+            // const SizedBox(height: 10),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     IconButton(
+            //       icon: Image.asset('assets/img/google_icon.png'),
+            //       onPressed: () {
+            //         // Handle Google sign-in
+            //       },
+            //     ),
+            //     IconButton(
+            //       icon: Image.asset('assets/img/facebook_icon.png'),
+            //       onPressed: () {
+            //         // Handle Facebook sign-in
+            //       },
+            //     ),
+            //     IconButton(
+            //       icon: Image.asset('assets/img/X_icon.png'),
+            //       onPressed: () {
+            //         // Handle Twitter sign-in
+            //       },
+            //     ),
+            //   ],
+            // ),
             const Spacer(),
             const Center(
               child: Text(

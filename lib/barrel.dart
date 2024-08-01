@@ -18,7 +18,6 @@ export 'package:empapp/features/dashboard/widgets/gasbar.dart';
 export 'package:empapp/features/dashboard/widgets/tips.dart';
 export 'package:empapp/features/dashboard/widgets/barchart.dart';
 export 'package:empapp/features/dashboard/widgets/stats.dart';
-
 export 'package:sleek_circular_slider/sleek_circular_slider.dart';
 export 'package:empapp/features/authentication/login.dart';
 export 'package:empapp/features/managedevice/adddevhome.dart';
@@ -86,3 +85,7 @@ export 'package:empapp/common/themeprovider.dart';
 export 'package:provider/provider.dart';
 
 export 'package:empapp/common/appdate.dart';
+
+export 'package:empapp/features/settings/help.dart';
+
+export 'package:empapp/features/dashboard/widgets/sliderprov.dart';

@@ -37,10 +37,11 @@ class _SplashPgeState extends State<SplashPge> {
                   end: Alignment.bottomRight,
                 ),
               ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child:  Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  addVertSpace(300),
+                 const  SizedBox(
                     width: 210,
                     child: Text("emission pulse",
                         textAlign: TextAlign.center,
@@ -48,6 +49,26 @@ class _SplashPgeState extends State<SplashPge> {
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
+                  ),
+                  addVertSpace(230),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 50),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Text(
+                        "TAP TO START",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w200,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

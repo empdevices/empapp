@@ -31,7 +31,7 @@ class _LoadScreenState extends State<LoadScreen> {
                   (Route<dynamic> route) => false,
                 );
               },
-              message: 'Device Server not\nactive.',
+              message: 'Adding Device\n Restricted.',
               icon: Icons.dangerous,
               iconColor: Colors.red,
               buttontext: 'Continue');

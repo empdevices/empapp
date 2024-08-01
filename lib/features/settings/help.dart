@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Cookies extends StatelessWidget {
-  const Cookies({super.key});
+class HelpAndAssistance extends StatelessWidget {
+  const HelpAndAssistance({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Cookies extends StatelessWidget {
         title: const Padding(
           padding: EdgeInsets.all(10.0),
           child: Text(
-            'Cookies Policy',
+            'Help & Assistance',
             style: TextStyle(
               fontSize: 30.0,
               fontWeight: FontWeight.w300,
@@ -32,9 +32,9 @@ class Cookies extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  "Cookies Policies",
+                  "Emission Pulse \nHelp & Assistance",
                   style: TextStyle(fontSize: 30.0, color: Colors.white),
-                )
+                ),
               ],
             ),
           ),
@@ -49,14 +49,14 @@ class Cookies extends StatelessWidget {
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: const SingleChildScrollView(
-                padding:  EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:  [
+                  children: const [
                     Center(
                       child: Text(
-                        "Emission Pulse \nOur Cookies Policy",
+                        "Help & Assistance",
                         style: TextStyle(
                           fontSize: 26.0,
                           color: Color(0xFF0F0159),
@@ -68,22 +68,21 @@ class Cookies extends StatelessWidget {
                       padding: EdgeInsets.all(20.0),
                       child: Text(
                         """
-Last Updated: 26TH MAY 2024
-                    
-This Cookie Policy explains how Emission Pulse ("we," "us," or "our") uses cookies and similar technologies to recognize you when you visit our website and use our services.
-What Are Cookies?
-Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They help the website recognize your device and remember certain information about your visit.
+If you need assistance or have any questions, please reach out to us through the following channels:
 
-How We Use Cookies
-  
-  We use cookies to:
-  
-  1 Enhance User Experience: Remember your preferences and settings.
-  
-  2 Analytics: Understand how you use our website and services, so we can improve them.
-  
-  3 Functionality: Ensure our website and services work correctly and efficiently.
-                    """,
+1. Help Line:
+   - Phone: +254 704 469422
+
+2. Email:
+   - Support Email: emissionpulse.@gmail.com
+
+3. Social Media:
+   - Facebook: @EmissionPulse
+   - Twitter: @EmissionPulse
+   - Instagram: @EmissionPulse
+
+We are here to help and will get back to you as soon as possible. Thank you for using Emission Pulse!
+                        """,
                         style: TextStyle(fontSize: 16.0),
                       ),
                     ),

@@ -1,6 +1,7 @@
 import 'package:empapp/barrel.dart';
 
 class EmpPieChart extends StatelessWidget {
+  final Map<String, dynamic> statEms;
   final String domain1;
   final String domain2;
   final String domain3;
@@ -10,6 +11,7 @@ class EmpPieChart extends StatelessWidget {
 
   const EmpPieChart({
     super.key,
+    required this.statEms,
     required this.domain1,
     required this.domain2,
     required this.domain3,
@@ -67,7 +69,7 @@ class EmpPieChart extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                '30kg',
+                '${statEms['userems']['wed']['total'].toDouble()}',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 16,

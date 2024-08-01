@@ -251,13 +251,13 @@ class _DashboardState extends State<Dashboard> {
                           const SizedBox(
                             height: 30,
                           ),
-                          const Center(
+                           Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CirclerIndicator(
-                                    timeframe: 'Today', weight: 30),
-                                Padding(
+                                    timeframe: 'Today', weight: userData['userems']['wed']['total'].toDouble()),
+                                const Padding(
                                   padding: EdgeInsets.only(top: 16.0),
                                   child: Text(
                                     'Good Job!',
@@ -289,17 +289,17 @@ class _DashboardState extends State<Dashboard> {
                               GasBar(
                                   gas: "CO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: userData['userems']['today']['CO2'].toString()),
+                                  weight: '${userData['userems']['wed']['CO2'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "NOx",
                                   time: "captured 2 minutes ago",
-                                  weight: userData['userems']['today']['NOx'].toString()),
+                                  weight: '${userData['userems']['wed']['NOx'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "SO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: userData['userems']['today']['SO2'].toString()),
+                                  weight: '${userData['userems']['wed']['SO2'].toString()}.0'),
                             ],
                           ),
                           const SizedBox(height: 20),

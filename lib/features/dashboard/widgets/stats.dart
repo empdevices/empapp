@@ -1,7 +1,10 @@
 import 'package:empapp/barrel.dart';
 
 class Statistics extends StatefulWidget {
-  const Statistics({super.key});
+  final Map<String, dynamic> statsEms;
+  const Statistics({
+    required this.statsEms,
+    super.key});
 
   @override
   State<Statistics> createState() => _StatisticsState();
@@ -45,7 +48,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                          Text(
-                          "CO₂ : 14.5 g/km",
+                          'CO2 : ${widget.statsEms['userems']['wed']['CO2']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,
@@ -66,7 +69,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                         Text(
-                          "NOX : 7.8 g/km",
+                          'NOx : ${widget.statsEms['userems']['wed']['NOx']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,
@@ -87,7 +90,7 @@ class _StatisticsState extends State<Statistics> {
                           width: 5,
                         ),
                         Text(
-                          "SO2 : 6.2 g/km",
+                          'SO2 : ${widget.statsEms['userems']['wed']['SO2']}.0kg',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontSize: 10,
@@ -100,7 +103,8 @@ class _StatisticsState extends State<Statistics> {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.65,
-                  child: const EmpPieChart(
+                  child:  EmpPieChart(
+                          statEms: widget.statsEms,
                           domain1: "SO2",
                           domain2: "CO₂",
                           domain3: "NOX",

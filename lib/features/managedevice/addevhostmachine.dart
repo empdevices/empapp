@@ -46,7 +46,7 @@ class HostMachine extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(left: 20.0, right: 20.0),
             child: Text(
-              'Search',
+              'Vehicle Brand',
               style: TextStyle(fontSize: 16),
             ),
           ),
@@ -63,94 +63,63 @@ class HostMachine extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Text("     Select Machine"),
-          const SizedBox(height: 0),
-          Center(
-            child: GestureDetector(
-              onTap: () {
-                // Handle log in navigation
-              },
-              child: Container(
-                width: 280,
-                height: 51,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: const Offset(0, 3),
-                      )
-                    ]),
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
-                        'Select from list',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 150),
-                      child: Icon(Icons.arrow_drop_down),
-                    )
-                  ],
-                ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Text(
+              'Vehicle Model',
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'type here...',
+                hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                border: UnderlineInputBorder(),
               ),
             ),
           ),
-          const SizedBox(height: 20),
-          const Text("     Select type"),
-          const SizedBox(height: 10),
-          Center(
-            child: GestureDetector(
-              onTap: () {
-                // Handle log in navigation
-              },
-              child: Container(
-                width: 280,
-                height: 51,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: const Offset(0, 3),
-                      )
-                    ]),
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
-                        'Select from list',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 150),
-                      child: Icon(Icons.arrow_drop_down),
-                    )
-                  ],
-                ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Text(
+              'Registeration Number',
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'type here...',
+                hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                border: UnderlineInputBorder(),
               ),
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           const SizedBox(height: 120),
           Center(
             child: AppButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => const Dashboard(),
-                  ),
-                ); // navigate to login page
+                showEmpPopup(
+                    context: context,
+                    onPressed: () {
+                      // push replacement to dashboard
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => const Dashboard()),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
+                    message: 'Adding Host \nRestricted.',
+                    icon: Icons.dangerous,
+                    iconColor: Colors.red,
+                    buttontext: 'Continue');
               },
               buttonText: 'Confirm',
             ),

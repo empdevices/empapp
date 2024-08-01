@@ -116,6 +116,11 @@ class _ScanState extends State<Scan> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         qrText = scanData.code;
+        controller.pauseCamera();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoadScreen()),
+        );
       });
     });
   }

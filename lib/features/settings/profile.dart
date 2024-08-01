@@ -56,9 +56,9 @@ class Profile extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 30),
                     ),
-                    Text("theuser@gmail.com",
+                    Text("admin@gmail.com",
                         style: TextStyle(color: Colors.white)),
-                    Text("User City", style: TextStyle(color: Colors.white)),
+                    Text("Admin City", style: TextStyle(color: Colors.white)),
                   ],
                 )
               ],
@@ -108,7 +108,15 @@ class Profile extends StatelessWidget {
                             value:
                                 false, // Replace with the current value from your app's state
                             onChanged: (bool value) {
-                              // Handle dark mode toggle
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(
@@ -121,7 +129,15 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle app rating
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(
@@ -134,7 +150,15 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle app sharing
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(
@@ -147,7 +171,15 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle privacy policy
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(
@@ -160,7 +192,15 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle terms and conditions
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(
@@ -173,7 +213,15 @@ class Profile extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ),
                             onTap: () {
-                              // Handle cookies policy
+                              showEmpPopup(
+                                  context: context,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  message: 'Feature not\nactive.',
+                                  icon: Icons.dangerous,
+                                  iconColor: Colors.red,
+                                  buttontext: 'Continue');
                             },
                           ),
                           const SizedBox(

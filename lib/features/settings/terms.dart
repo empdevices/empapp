@@ -1,4 +1,4 @@
-import 'package:empapp/barrel.dart';
+import 'package:flutter/material.dart';
 
 class Terms extends StatelessWidget {
   const Terms({super.key});
@@ -8,21 +8,22 @@ class Terms extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.white, // Set your desired color here
+          color: Colors.white,
         ),
         title: const Padding(
           padding: EdgeInsets.all(10.0),
           child: Text(
-            '    ',
+            'Terms Policy',
             style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.w300,
-                color: Colors.white),
+              fontSize: 30.0,
+              fontWeight: FontWeight.w300,
+              color: Colors.white,
+            ),
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Column(
         children: [
           const SizedBox(height: 30.0),
@@ -31,75 +32,67 @@ class Terms extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  "Terms and Conditions",
+                  "Emission Pulse \nOur Terms Policy",
                   style: TextStyle(fontSize: 30.0, color: Colors.white),
                 )
               ],
             ),
           ),
-          const SizedBox(
-            height: 50.0,
-          ),
+          const SizedBox(height: 30.0),
           Expanded(
-              child: Stack(children: [
-            Container(
+            child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 80.0, top: 40),
-              child: Row(children: [
-                Text(
-                  """Emission Pulse 
-Our Terms and 
-Conditions""",
-                  style: TextStyle(fontSize: 30.0, color: Color(0xFF0F0159)),
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
                 ),
-              ]),
-            ),
-            const Positioned(
-              top: 180,
-              child: Column(
-                children: [
-                  Text(
-                    """
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            Terms and Conditionsdghethtegrfedegfhdfgert
-            """,
-                  ),
-                ],
               ),
-            )
-          ]))
+              child: const SingleChildScrollView(
+                padding:  EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:  [
+                    Center(
+                      child: Text(
+                        "Emission Pulse \nOur Terms Policy",
+                        style: TextStyle(
+                          fontSize: 26.0,
+                          color: Color(0xFF0F0159),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text(
+                        """
+Last Updated: 26th May 2024
+                    
+Welcome to Emission Pulse! These Terms and Conditions outline the rules and regulations for the use of our device and services. By accessing or using Emission Pulse, you agree to comply with and be bound by these terms. If you do not agree with any part of these terms, please do not use our services.
+                    
+1. Definitions
+                    
+  "Service" refers to the use of the Emission  Pulse device and any associated software and services.
+                    
+  "We," "us," and "our" refer to Emission Pulse.
+                    
+  "User," "you," and "your" refer to the individual using our Service.
+                    
+2. Use of Service
+                    
+  Eligibility:
+  You must be at least 18 years old to use our Service. By using our Service, you represent and warrant that you meet this requirement.       
+                    """,
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
