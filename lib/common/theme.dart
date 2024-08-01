@@ -9,7 +9,7 @@ class EmpAppTheme {
       // Light = MainColor | Dark = White
       primary: mainCol,
 
-      // Light = Black | Dark = White 
+      // Light = Black | Dark = White
       onPrimary: Colors.black,
 
       // Light = MainColor | Dark = Black
@@ -17,7 +17,6 @@ class EmpAppTheme {
 
       // Light = White | Dark = Black
       secondary: Colors.white,
-      
     ),
     appBarTheme: EmpAppBarTheme.lightAppBarTheme,
     scaffoldBackgroundColor: mainCol,
@@ -28,13 +27,13 @@ class EmpAppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(
-      primary: Colors.white,
-      onPrimary: Colors.white,
-      primaryFixed: Colors.black,
-      secondary: Colors.black,
+      primary: Color.fromARGB(255, 195, 195, 195),
+      onPrimary: Color.fromARGB(255, 187, 187, 187),
+      primaryFixed: Color.fromARGB(255, 39, 39, 39),
+      secondary: Color.fromARGB(255, 60, 60, 60),
     ),
     appBarTheme: EmpAppBarTheme.darkAppBarTheme,
-    scaffoldBackgroundColor: Colors.black38,
+    scaffoldBackgroundColor: Color.fromARGB(96, 31, 31, 31),
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
     textTheme: EmpTextTheme.darkTextTheme,
