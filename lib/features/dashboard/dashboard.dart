@@ -283,30 +283,19 @@ class _DashboardState extends State<Dashboard> {
                           const SizedBox(height: 20),
                           Padding(
                             padding: const EdgeInsets.only(right: 40.0),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor: const Color(0xFF0F0159),
-                                minimumSize: const Size(50, 25),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>  Details(empuser: userData, daysPerformance: todaysPerformance,)),
-                                );
-                              },
-                              child: const Text(
-                                'View Details',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w200,
-                                ),
-                              ),
-                            ),
+                            child: SmallAppButton(
+                                empuser: userData,
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Details(
+                                            empuser: userData,
+                                            daysPerformance:
+                                                todaysPerformance)),
+                                  );
+                                },
+                                buttonText: "View Details"),
                           ),
                           Column(
                             children: [
