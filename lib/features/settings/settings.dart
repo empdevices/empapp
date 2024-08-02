@@ -1,7 +1,5 @@
 import 'package:empapp/barrel.dart';
 import 'package:empapp/features/settings/cookies.dart';
-import 'package:empapp/features/settings/privacy.dart';
-import 'package:empapp/features/settings/terms.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
