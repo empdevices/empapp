@@ -21,9 +21,7 @@ class SmallAppButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(6.0),
         ),
       ),
-      onPressed: () {
-        
-      },
+      onPressed: () {},
       child: Text(
         buttonText,
         style: const TextStyle(
@@ -38,10 +36,8 @@ class SmallAppButton extends StatelessWidget {
 
 class SmallAppButtonLight extends StatefulWidget {
   final VoidCallback onPressed;
-  final String buttonText;
 
-  const SmallAppButtonLight(
-      {super.key, required this.onPressed, required this.buttonText});
+  const SmallAppButtonLight({super.key, required this.onPressed});
 
   @override
   State<SmallAppButtonLight> createState() => _SmallAppButtonLightState();
@@ -69,6 +65,18 @@ class _SmallAppButtonLightState extends State<SmallAppButtonLight> {
           onChanged: (String? newValue) {
             setState(() {
               _dropdownValue = newValue!;
+              if (newValue == 'Week') {
+              } else {
+                showEmpPopup(
+                    context: context,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    message: 'Insufficient \ndata.',
+                    icon: Icons.dangerous,
+                    iconColor: Colors.red,
+                    buttontext: 'Continue');
+              }
             });
           },
           items: _items.map<DropdownMenuItem<String>>((String item) {

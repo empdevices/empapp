@@ -83,7 +83,6 @@ class _BarChatState extends State<BarChat> {
                   onPressed: () {
                     // navigate to login page
                   },
-                  buttonText: 'Week',
                 ),
               ],
             ),
