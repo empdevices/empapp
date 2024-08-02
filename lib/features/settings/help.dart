@@ -21,9 +21,9 @@ class HelpAndAssistance extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       ),
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       body: Column(
         children: [
           const SizedBox(height: 30.0),
