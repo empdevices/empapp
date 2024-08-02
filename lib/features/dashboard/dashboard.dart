@@ -104,8 +104,7 @@ class _DashboardState extends State<Dashboard> {
                 onPressed: () {
                   // navigate to settings page
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SettingsPage())
-                      );
+                      builder: (context) => const SettingsPage()));
                 },
               ),
             ),
@@ -162,7 +161,7 @@ class _DashboardState extends State<Dashboard> {
               defprofileboy = false;
               defprofilegirl = true;
             }
-            
+
             final String todaysPerformance;
 
             if (userData['userems']['thu']['total'] < 25) {
@@ -261,13 +260,15 @@ class _DashboardState extends State<Dashboard> {
                           const SizedBox(
                             height: 30,
                           ),
-                           Center(
+                          Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CirclerIndicator(
-                                    timeframe: 'Today', weight: userData['userems']['thu']['total'].toDouble()),
-                                 Padding(
+                                    timeframe: 'Today',
+                                    weight: userData['userems']['thu']['total']
+                                        .toDouble()),
+                                Padding(
                                   padding: const EdgeInsets.only(top: 16.0),
                                   child: Text(
                                     todaysPerformance,
@@ -283,12 +284,15 @@ class _DashboardState extends State<Dashboard> {
                           Padding(
                             padding: const EdgeInsets.only(right: 40.0),
                             child: SmallAppButton(
-                                empuser:  userData,
+                                empuser: userData,
                                 onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Details(empuser: userData, daysPerformance: todaysPerformance)),
+                                        builder: (context) => Details(
+                                            empuser: userData,
+                                            daysPerformance:
+                                                todaysPerformance)),
                                   );
                                 },
                                 buttonText: "View Details"),
@@ -299,17 +303,20 @@ class _DashboardState extends State<Dashboard> {
                               GasBar(
                                   gas: "CO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['thu']['CO2'].toString()}.0'),
+                                  weight:
+                                      '${userData['userems']['thu']['CO2'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "NOx",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['thu']['NOx'].toString()}.0'),
+                                  weight:
+                                      '${userData['userems']['thu']['NOx'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "SO₂",
                                   time: "captured 2 minutes ago",
-                                  weight: '${userData['userems']['thu']['SO2'].toString()}.0'),
+                                  weight:
+                                      '${userData['userems']['thu']['SO2'].toString()}.0'),
                             ],
                           ),
                           const SizedBox(height: 20),

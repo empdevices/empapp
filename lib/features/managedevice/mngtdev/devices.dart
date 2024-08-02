@@ -8,7 +8,7 @@ class DeviceBoxSmall extends StatefulWidget {
 }
 
 class DeviceBoxSmallState extends State<DeviceBoxSmall> {
-  bool _isSwitched = true;
+  final bool _isSwitched = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -31,10 +31,9 @@ class HelpAndAssistance extends StatelessWidget {
             padding: EdgeInsets.only(left: 20.0),
             child: Row(
               children: [
-                Text(
-                  "Emission Pulse \nHelp & Assistance",
-                  style: TextStyle(fontSize: 30.0, color: Colors.white),
-                ),
+                SizedBox(
+                  height: 70,
+                )
               ],
             ),
           ),
@@ -54,9 +53,12 @@ class HelpAndAssistance extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 10,
+                    ),
                     Center(
                       child: Text(
-                        "Help & Assistance",
+                        "   Emission Pulse \n   Help & Assistance",
                         style: TextStyle(
                           fontSize: 26.0,
                           color: Color(0xFF0F0159),

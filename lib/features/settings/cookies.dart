@@ -31,9 +31,8 @@ class Cookies extends StatelessWidget {
             padding: EdgeInsets.only(left: 20.0),
             child: Row(
               children: [
-                Text(
-                  "Cookies Policies",
-                  style: TextStyle(fontSize: 30.0, color: Colors.white),
+                SizedBox(
+                  height: 70,
                 )
               ],
             ),
@@ -50,10 +49,10 @@ class Cookies extends StatelessWidget {
                 ),
               ),
               child: const SingleChildScrollView(
-                padding:  EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:  [
+                  children: [
                     Center(
                       child: Text(
                         "Emission Pulse \nOur Cookies Policy",

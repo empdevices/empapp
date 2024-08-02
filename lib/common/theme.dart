@@ -27,13 +27,13 @@ class EmpAppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(
-      primary: Color.fromARGB(255, 195, 195, 195),
-      onPrimary: Color.fromARGB(255, 187, 187, 187),
+      primary: Color.fromARGB(255, 39, 39, 39),
+      onPrimary: Color.fromARGB(255, 255, 255, 255),
       primaryFixed: Color.fromARGB(255, 39, 39, 39),
       secondary: Color.fromARGB(255, 60, 60, 60),
     ),
     appBarTheme: EmpAppBarTheme.darkAppBarTheme,
-    scaffoldBackgroundColor: Color.fromARGB(96, 31, 31, 31),
+    scaffoldBackgroundColor: const Color.fromARGB(96, 31, 31, 31),
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
     textTheme: EmpTextTheme.darkTextTheme,

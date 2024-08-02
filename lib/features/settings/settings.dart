@@ -1,7 +1,5 @@
 import 'package:empapp/barrel.dart';
 import 'package:empapp/features/settings/cookies.dart';
-import 'package:empapp/features/settings/privacy.dart';
-import 'package:empapp/features/settings/terms.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -198,7 +196,10 @@ class SettingsPage extends StatelessWidget {
                       height: 15,
                     ),
                     ListTile(
-                      leading: const Iconify(Carbon.help_desk),
+                      leading: const Iconify(
+                        Carbon.help_desk,
+                        color: Color.fromARGB(255, 118, 118, 118),
+                      ),
                       title: const Text(
                         'Help and Assistance',
                         style: TextStyle(fontWeight: FontWeight.normal),
