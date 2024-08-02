@@ -21,9 +21,9 @@ class Terms extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       ),
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       body: Column(
         children: [
           const SizedBox(height: 30.0),
@@ -48,8 +48,8 @@ class Terms extends StatelessWidget {
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: const SingleChildScrollView(
-                padding: EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                padding:  const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -58,12 +58,12 @@ class Terms extends StatelessWidget {
                         "Emission Pulse \nOur Terms Policy",
                         style: TextStyle(
                           fontSize: 26.0,
-                          color: Color(0xFF0F0159),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Padding(
+                    const SizedBox(height: 20),
+                    const Padding(
                       padding: EdgeInsets.all(20.0),
                       child: Text(
                         """
