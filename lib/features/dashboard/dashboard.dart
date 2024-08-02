@@ -146,7 +146,7 @@ class _DashboardState extends State<Dashboard> {
                     color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: const Center(
-                    child: Text('Error fetching user details'),
+                    child: Text('Error fetching data'),
                   ),
                 ),
               );
@@ -164,9 +164,9 @@ class _DashboardState extends State<Dashboard> {
 
             final String todaysPerformance;
 
-            if (userData['userems']['thu']['total'] < 25) {
+            if (userData['userems']['fri']['total'] < 25) {
               todaysPerformance = 'Good Job!';
-            } else if (userData['userems']['thu']['total'] < 50) {
+            } else if (userData['userems']['fri']['total'] < 50) {
               todaysPerformance = 'Fair Job!';
             } else {
               todaysPerformance = 'Needs Improvement!';
@@ -266,7 +266,7 @@ class _DashboardState extends State<Dashboard> {
                               children: [
                                 CirclerIndicator(
                                     timeframe: 'Today',
-                                    weight: userData['userems']['thu']['total']
+                                    weight: userData['userems']['fri']['total']
                                         .toDouble()),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 16.0),
@@ -283,19 +283,30 @@ class _DashboardState extends State<Dashboard> {
                           const SizedBox(height: 20),
                           Padding(
                             padding: const EdgeInsets.only(right: 40.0),
-                            child: SmallAppButton(
-                                empuser: userData,
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Details(
-                                            empuser: userData,
-                                            daysPerformance:
-                                                todaysPerformance)),
-                                  );
-                                },
-                                buttonText: "View Details"),
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: const Color(0xFF0F0159),
+                                minimumSize: const Size(50, 25),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(empuser: userData, daysPerformance: todaysPerformance,)),
+                                );
+                              },
+                              child: const Text(
+                                'View Details',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w200,
+                                ),
+                              ),
+                            ),
                           ),
                           Column(
                             children: [
@@ -304,19 +315,19 @@ class _DashboardState extends State<Dashboard> {
                                   gas: "CO₂",
                                   time: "captured 2 minutes ago",
                                   weight:
-                                      '${userData['userems']['thu']['CO2'].toString()}.0'),
+                                      '${userData['userems']['fri']['CO2'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "NOx",
                                   time: "captured 2 minutes ago",
                                   weight:
-                                      '${userData['userems']['thu']['NOx'].toString()}.0'),
+                                      '${userData['userems']['fri']['NOx'].toString()}.0'),
                               const SizedBox(height: 20),
                               GasBar(
                                   gas: "SO₂",
                                   time: "captured 2 minutes ago",
                                   weight:
-                                      '${userData['userems']['thu']['SO2'].toString()}.0'),
+                                      '${userData['userems']['fri']['SO2'].toString()}.0'),
                             ],
                           ),
                           const SizedBox(height: 20),

@@ -37,7 +37,6 @@ class HelpAndAssistance extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 30.0),
           Expanded(
             child: Container(
               width: double.infinity,
@@ -53,7 +52,7 @@ class HelpAndAssistance extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Center(
@@ -61,7 +60,7 @@ class HelpAndAssistance extends StatelessWidget {
                         "   Emission Pulse \n   Help & Assistance",
                         style: TextStyle(
                           fontSize: 26.0,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                     ),

@@ -13,7 +13,7 @@ class Details extends StatefulWidget {
 
 class DetailsState extends State<Details> {
   Map<String, dynamic>? currEmission;
-  String appday = 'wed';
+  String appday = 'fri';
   late Color emotionColor;
   late String emotionLabel;
   late String emotiontext;

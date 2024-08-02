@@ -26,19 +26,7 @@ class Privacy extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.primaryFixed,
       body: Column(
         children: [
-          const SizedBox(height: 30.0),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0),
-            child: Row(
-              children: [
-                Text(
-                  "Privacy Policies",
-                  style: TextStyle(fontSize: 30.0, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 100.0),
           Expanded(
             child: Container(
               width: double.infinity,
@@ -59,7 +47,7 @@ class Privacy extends StatelessWidget {
                         "Emission Pulse \nOur Privacy Policy",
                         style: TextStyle(
                           fontSize: 26.0,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                     ),

@@ -37,7 +37,6 @@ class Terms extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 30.0),
           Expanded(
             child: Container(
               width: double.infinity,
@@ -58,7 +57,7 @@ class Terms extends StatelessWidget {
                         "Emission Pulse \nOur Terms Policy",
                         style: TextStyle(
                           fontSize: 26.0,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                     ),

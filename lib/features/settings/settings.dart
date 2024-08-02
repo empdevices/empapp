@@ -196,9 +196,9 @@ class SettingsPage extends StatelessWidget {
                       height: 15,
                     ),
                     ListTile(
-                      leading: const Iconify(
+                      leading: Iconify(
                         Carbon.help_desk,
-                        color: Color.fromARGB(255, 118, 118, 118),
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                       title: const Text(
                         'Help and Assistance',
@@ -214,6 +214,18 @@ class SettingsPage extends StatelessWidget {
                             child: const HelpAndAssistance(),
                           ),
                         );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.logout_outlined),
+                      title: const Text(
+                        'log Out',
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      ),
+                      onTap: () {
+                        // Navigate to logout screen
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Logout()));
                       },
                     ),
                   ],
